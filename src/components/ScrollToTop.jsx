@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 export default function ScrollToTop() {

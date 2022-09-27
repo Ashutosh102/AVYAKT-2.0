@@ -2,27 +2,56 @@
 import React from "react";
 import home from "../assets/illust.png";
 import Typewriter from "typewriter-effect";
+
 export default function Home() {
   return (
+    
     <div className="home">
       <div className="container">
         <div className="content">
-          <p className="sub-title">Avyakt 2.0</p>
-          <h1 className="title">A Fest for <Typewriter
-  
+          {/* <p className="sub-title">Avyakt 2.0</p> */}
+          <h1 className="title">AVYAKT 2.0<Typewriter
+            
   onInit={(typewriter)=> {
-
+    
   typewriter
-   
-  .typeString("Geeks")
+   .start()
+  .typeString("For Geeks")
     
   .pauseFor(1000)
   .deleteAll()
-  .typeString("Techies")
+  .typeString("For Techies")
   .pauseFor(1000)
   .deleteAll()
-  .typeString("Students")
-  .start();
+  .typeString("For Students")
+  .deleteAll()
+  .typeString("For Geeks")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Techies")
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Students")
+  .deleteAll()
+  .typeString("For Geeks")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Techies")
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Students")
+  .deleteAll()
+  .typeString("For Geeks")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Techies")
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Students")
+  .start()
   }}
   /></h1>
           <p className="description">
@@ -33,7 +62,7 @@ export default function Home() {
         </div>
         <div className="image-container">
           <div className="image">
-            <img src={home} alt="home image" />
+            <img src={home} alt="home image" loading="lazy" />
           </div>
           <div className="ellipse-container">
             <div className="ellipse pink"></div>

@@ -16,7 +16,7 @@ export default function Signup() {
         </div>
         <div className="image-container">
           <div className="image">
-            <img src={signup} alt="home image" />
+            <img src={signup} alt="home image" loading="lazy"/>
           </div>
           <div className="ellipse-container">
             <div className="ellipse pink"></div>

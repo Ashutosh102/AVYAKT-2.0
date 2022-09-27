@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import icon from "../assets/icon-z.png";
+import icon from "../assets/avyakt-L1.png";
 import super1 from "../assets/event.png";
 import release2 from "../assets/study.png";
 
@@ -14,7 +14,7 @@ export default function Free() {
         </div>
         <div className="content">
           <div className="image">
-            <img src={icon} alt="icon" />
+            <img src={icon} alt="icon" loading="lazy" />
           </div>
           <h2 className="title">Get Ready for Avyakt 2.0</h2>
           <p className="description">
@@ -28,7 +28,7 @@ export default function Free() {
             image={super1}
             series="Events"
             title="Tech/non-tech"
-            
+            loading="lazy"
            
           />
         </div>
@@ -37,7 +37,7 @@ export default function Free() {
             image={release2}
             series="Workshops"
             title="hackathons"
-            
+            loading="lazy"
            
           />
         </div>

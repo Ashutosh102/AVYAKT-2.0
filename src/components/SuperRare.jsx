@@ -51,6 +51,7 @@ export default function SuperRare() {
             tag={tag}
             time={time}
             key={index}
+            loading="lazy"
           />
         ))}
       </div>

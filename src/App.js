@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  
+} from "react-router-dom";
+import About from './components/About';
 import Clients from "./components/Clients";
 import Footer from "./components/Footer";
 import Free from "./components/Free";
@@ -51,6 +58,7 @@ function App() {
   }, 1500);
   return (
     <div data-theme={theme} className="app-container">
+      <Router>
       <ScrollToTop />
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
       <Home />
@@ -61,6 +69,29 @@ function App() {
       <Like />
       <Signup />
       <Footer />
+      
+        <Routes>
+          {/* This route is for home component 
+          with exact path "/", in component props 
+          we passes the imported component*/}
+          
+            
+          {/* This route is for about component 
+          with exact path "/about", in component 
+          props we passes the imported component*/}
+          <Route path="/about" element={<About />} />
+            
+          {/* This route is for contactus component
+          with exact path "/contactus", in 
+          component props we passes the imported component*/}
+          
+            
+          {/* If any route mismatches the upper 
+          route endpoints then, redirect triggers 
+          and redirects app to home component with to="/" */}
+          
+        </Routes>
+      </Router>
     </div>
   );
 }

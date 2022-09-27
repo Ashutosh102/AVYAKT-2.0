@@ -30,6 +30,7 @@ export default function Release() {
         <div className="card-container">
           <Card
             image={release2}
+            loading="lazy"
             series="Gloop Series"
             title="Purple Man"
             price={3.95}

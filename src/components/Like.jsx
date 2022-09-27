@@ -1,6 +1,6 @@
 import React from "react";
 import eth1 from "../assets/GIET.png";
-import eth2 from "../assets/avyakt-L.png";
+import eth2 from "../assets/avyakt-L1.png";
 
 export default function Like() {
   return (
@@ -8,7 +8,7 @@ export default function Like() {
       <div className="container">
         <div className="content">
           <div className="image">
-            <img src={eth1} alt="eth1" />
+            <img src={eth1} alt="eth1" loading="lazy" />
           </div>
           <h2 className="title">An Organization like no other</h2>
           <p className="description">
@@ -23,7 +23,7 @@ export default function Like() {
         </div>
         <div className="content">
           <div className="image">
-            <img src={eth2} alt="eth2" />
+            <img src={eth2} alt="eth2" loading="lazy"/>
           </div>
           <h2 className="title">An Event like no other</h2>
           <p className="description">
