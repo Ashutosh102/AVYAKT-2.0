@@ -1,5 +1,7 @@
-import React from "react";
-export default function Card({ image, series, title }) {
+/* eslint-disable react/jsx-no-target-blank */
+import React from 'react'
+import "../sass/index.scss";
+export default function Card2({ image, series, title, link }) {
   return (
     <div className="card">
       <div className="card-image">
@@ -8,7 +10,7 @@ export default function Card({ image, series, title }) {
       <div className="card-content">
         <div className="card-heading">
           <span className="card-series">{series}</span>
-          <span className="card-top">Stay Tuned</span>
+          <span className="card-top">Team</span>
         </div>
         <div className="card-details">
           <h4 className="card-title">{title}</h4>
@@ -18,9 +20,10 @@ export default function Card({ image, series, title }) {
         </div>
         <div className="card-sub-details">
           <span>#GIETU</span>
-          <span>Coming Soon</span>
+          <span><a href={link} class="glow-button" target="_blank">Contact</a></span>
         </div>
       </div>
     </div>
-  );
+  )
 }
+

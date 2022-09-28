@@ -12,3 +12,19 @@
 @import "sections/release";
 @import "sections/signup";
 @import "sections/like";
+
+.glow-button{
+text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgb(255, 124, 49);
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.glow-button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 8px 15px 8px rgba(255, 81, 0, 0.581);
+  }
