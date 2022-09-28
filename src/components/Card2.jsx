@@ -4,8 +4,8 @@ import "../sass/index.scss";
 export default function Card2({ image, series, title, link }) {
   return (
     <div className="card">
-      <div className="card-image">
-        <img src={image} alt="super1" />
+      <div className="card-image"  >
+        <img style={{borderRadius : "15px 15px 0 0", border:"8px solid black"}} src={image} alt="super1" />
       </div>
       <div className="card-content">
         <div className="card-heading">

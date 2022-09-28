@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Signup from "./Signup";
 import Footer from "./Footer";
 import "../sass/index.scss";
+
 import React, { useState, useEffect } from "react";
 import scrollreveal from "scrollreveal";
 import ScrollToTop from "./ScrollToTop";
@@ -69,6 +70,10 @@ function About() {
       link: "https://www.linkedin.com/in/ankit-mahapatra-5184711bb"
       
     },
+   
+    
+  ];
+  const data1 = [
     {
       image: super4,
       series: "UI/UX",
@@ -76,9 +81,6 @@ function About() {
       link: "https://www.linkedin.com/in/devi-prasad-mishra-726903210/"
       
     },
-    
-  ];
-  const data1 = [
     {
       image: super6,
       series: "Front-end",
