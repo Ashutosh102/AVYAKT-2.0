@@ -62,15 +62,7 @@ function App() {
       <ScrollToTop />
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
       <Home />
-      <Free />
-      <Clients />
-      <SuperRare />
-      <Release />
-      <Like />
-      <Signup />
-      <Footer />
-      
-        <Routes>
+      <Routes>
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
@@ -79,8 +71,8 @@ function App() {
           {/* This route is for about component 
           with exact path "/about", in component 
           props we passes the imported component*/}
-          <Route path="/about" element={<About />} />
-            
+          <Route path="/about" page={<About />} />
+           
           {/* This route is for contactus component
           with exact path "/contactus", in 
           component props we passes the imported component*/}
@@ -91,6 +83,16 @@ function App() {
           and redirects app to home component with to="/" */}
           
         </Routes>
+      
+      <Free />
+      <Clients />
+      <SuperRare />
+      <Release />
+      <Like />
+      <Signup />
+      <Footer />
+      
+        
       </Router>
     </div>
   );

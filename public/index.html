@@ -27,23 +27,34 @@
     <title>React App</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
     <script>  
-      $(window).on('load', function () {  
-          $(".loader").fadeOut("slow");  
-     });  
+      $(document).ready(function(){
+    setTimeout(()=> {
+        $('.loader').fadeOut('fast');
+    } , 7000); // after 5 sec it will remove.
+}); 
+    
+    
    </script>
    <style>
     div.loader {  
-             display: flex;  
-             justify-content: center;  
-             align-items: center;  
-             background-color: black;
-             height:100vh;
+      position: absolute;
+    top:0px;
+    right:0px;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    background-image:url('AVYAKT.gif');
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    z-index:10000000000;
+    
         }
   </style>
   </head>
   <body>
     <div class="loader">  
-      <img src="AVYAKT.gif" alt="">  
+       
    </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
