@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import signup from "../assets/sign.png";
+import { Link } from "react-router-dom";
 export default function Signup() {
   return (
     <div className="signup">
@@ -12,7 +13,7 @@ export default function Signup() {
             The Event of Techies. Contact below to
             recieve updates when we go live.
           </p>
-          <button>Contact Us</button>
+          <button><Link to="/contact" style={{textDecoration:"none", color: "white"}}>Contact Us</Link></button>
         </div>
         <div className="image-container">
           <div className="image">

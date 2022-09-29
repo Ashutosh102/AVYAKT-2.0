@@ -1,60 +1,60 @@
 import React, { useState, useEffect } from "react";
-import Login from "./components/Login";
+import Contact from "./components/contact";
 import ScrollToTop from "./components/ScrollToTop";
 import scrollreveal from "scrollreveal";
 import Navbar from "./components/Navbar";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./sass/index.scss";
-function App2() {
-  const particlesInit = async (main) => {
-    console.log(main);
-
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(main);
-  };
-  const [theme, setTheme] = useState("dark");
-  const changeTheme = () => {
-    theme === "dark" ? setTheme("light") : setTheme("dark");
-  };
-  useEffect(() => {
-    const registerAnimations = () => {
-      const sr = scrollreveal({
-        origin: "bottom",
-        distance: "80px",
-        duration: 2000,
-        reset: false,
-      });
-      sr.reveal(
-        `
-        nav,
+import Footer from "./components/Footer";
+function App3() {
+    const particlesInit = async (main) => {
+        console.log(main);
+    
+        // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(main);
+      };
+      const [theme, setTheme] = useState("dark");
+      const changeTheme = () => {
+        theme === "dark" ? setTheme("light") : setTheme("dark");
+      };
+      useEffect(() => {
+        const registerAnimations = () => {
+          const sr = scrollreveal({
+            origin: "bottom",
+            distance: "80px",
+            duration: 2000,
+            reset: false,
+          });
+          sr.reveal(
+            `
+            nav,
+            
+        `,
+            {
+              interval: 500,
+            }
+          );
+        };
+        registerAnimations();
+      }, []);
+      window.setTimeout(() => {
+        // const home = document.getElementsByClassName("home");
         
-    `,
-        {
-          interval: 500,
-        }
-      );
-    };
-    registerAnimations();
-  }, []);
-  window.setTimeout(() => {
-    // const home = document.getElementsByClassName("home");
-    
-    const nav = document.getElementsByTagName("nav");
-    nav[0].style.transform = "none";
-    
-  }, 1500);
+        const nav = document.getElementsByTagName("nav");
+        nav[0].style.transform = "none";
+        
+      }, 1500);
   return (
-    <>
-  
-          
     <div data-theme={theme} className="app-container">
       <ScrollToTop />
-      {/* <Navbar changeTheme={changeTheme} options={{}} currentTheme={theme} /> */}
-    <Login />
-    <Particles
+      <Navbar changeTheme={changeTheme} currentTheme={theme} />
+      <br/>
+      <Contact/>
+      <Footer/>
+      {/* <Particles
       id="tsparticles"
       init={particlesInit}
 
@@ -177,10 +177,9 @@ function App2() {
             "size": "cover"
         }
     }}
-    />
+    /> */}
     </div>
-    </>
   )
 }
 
-export default App2
+export default App3

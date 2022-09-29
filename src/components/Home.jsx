@@ -2,6 +2,7 @@
 import React from "react";
 import home from "../assets/illust.png";
 import Typewriter from "typewriter-effect";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -58,7 +59,7 @@ export default function Home() {
             Don't miss out on the release of our new Techno-Cultural Fest. Sign up below to
             recieve updates when we go live.
           </p>
-          <button>Sign Up</button>
+          <button><Link to="/login" style={{textDecoration:"none", color: "white"}}>Sign Up</Link></button>
           
         </div>
         <div className="image-container">

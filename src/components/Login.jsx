@@ -3,6 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as Components from "./components";
 import "../sass/index.scss";
+import eth1 from "../assets/GIET.png";
+import eth2 from "../assets/avyakt-L1.png";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
@@ -15,6 +17,7 @@ function Login() {
   return (
     <Components.Main>
     <Components.Container>
+    <div className="image-container">
       <Components.SignUpContainer signingIn={signIn}>
         <Components.Form method="POST" action="/">
           <Components.Title>Create Account</Components.Title>
@@ -41,15 +44,16 @@ function Login() {
       <Components.OverlayContainer signingIn={signIn}>
         <Components.Overlay signingIn={signIn}>
           <Components.LeftOverlayPanel signingIn={signIn}>
-          <Components.Title>Hello, GIETian!</Components.Title>
+          <img src={eth1} alt="eth1" loading="lazy" />
+          <Components.Title>Welcome Back!</Components.Title>
             <Components.Paragraph>
-              Enter your personal details and start enjoying the Fest!! <br/> <br/> OR have an account already? 👇
+             Please login with your info
             </Components.Paragraph>
             <Components.GhostButton onClick={() => toggle(true)}>
               Sign In
             </Components.GhostButton>
             <br/>
-            <br/>
+            
             <Components.GhostButton>
             <Link to="/" style={{textDecoration:"none", color:"white"}}>
               Home
@@ -57,15 +61,15 @@ function Login() {
             </Components.GhostButton>
           </Components.LeftOverlayPanel>
           <Components.RightOverlayPanel signingIn={signIn}>
-            
-            <Components.Title>Welcome Back!</Components.Title>
+          <img src={eth2} alt="eth2" loading="lazy" />
+            <Components.Title>Hello GIETian!!</Components.Title>
             <Components.Paragraph>
-              To keep connected with us please login with your personal info<br/> <br/> OR want to create a new one? 👇
+            Start Enying the Fest!!
             </Components.Paragraph>
             <Components.GhostButton onClick={() => toggle(false)}>
               Sign Up
             </Components.GhostButton>
-            <br/><br/>
+            <br/>
             <Components.GhostButton>
             <Link to="/" style={{textDecoration:"none", color:"white"}}>
               Home
@@ -74,6 +78,11 @@ function Login() {
           </Components.RightOverlayPanel>
         </Components.Overlay>
       </Components.OverlayContainer>
+      <div className="ellipse-container">
+            <div className="ellipse pink"></div>
+            <div className="ellipse orange"></div>
+          </div>
+      </div>
     </Components.Container>
     </Components.Main>
   )
