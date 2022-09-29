@@ -13,7 +13,7 @@ export default function Signup() {
             The Event of Techies. Contact below to
             recieve updates when we go live.
           </p>
-          <button><Link to="/contact" style={{textDecoration:"none", color: "white"}}>Contact Us</Link></button>
+          <button><Link to="/contact" style={{textDecoration:"none", color: "orange"}}>Contact Us</Link></button>
         </div>
         <div className="image-container">
           <div className="image">

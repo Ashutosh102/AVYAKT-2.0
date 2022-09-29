@@ -54,21 +54,22 @@ function About() {
       image: super1,
       series: "Front-End",
       title: "Ashutosh Mohanty",
-     link: "https://www.linkedin.com/in/ashutosh-mohanty-3464a6204/"
+     link: "https://www.linkedin.com/in/ashutosh-mohanty-3464a6204/",
+     line: "Jack Of All Trades"
     },
     {
       image: super2,
       series: "Backend",
       title: "Ayush Sharma",
-      link: "https://www.linkedin.com/in/ayush-sharma-551133213/"
-      
+      link: "https://www.linkedin.com/in/ayush-sharma-551133213/",
+      line: "Hardwork Pays off"
     },
     {
       image: super3,
       series: "Grphics",
       title: "Ankit Mahapatra",
-      link: "https://www.linkedin.com/in/ankit-mahapatra-5184711bb"
-      
+      link: "https://www.linkedin.com/in/ankit-mahapatra-5184711bb",
+      line: "Creativity in every pixel"
     },
    
     
@@ -78,20 +79,22 @@ function About() {
       image: super4,
       series: "UI/UX",
       title: "Devi Prasad Mishra",
-      link: "https://www.linkedin.com/in/devi-prasad-mishra-726903210/"
-      
+      link: "https://www.linkedin.com/in/devi-prasad-mishra-726903210/",
+      line: "Designing every aspects"
     },
     {
       image: super6,
       series: "Front-end",
       title: "Ankit Raj",
-     link: "https://www.linkedin.com/in/ankitrj1602"
+     link: "https://www.linkedin.com/in/ankitrj1602",
+     line: "Developing new plans"
     },
     {
       image: super5,
       series: "Deployment",
       title: "Sourav Kumar Panda",
-      link: "https://www.linkedin.com/in/sourav-kumar-panda-38536b1a9/"
+      link: "https://www.linkedin.com/in/sourav-kumar-panda-38536b1a9/",
+      line: "Man on a mission"
     },
    
     
@@ -110,23 +113,25 @@ function About() {
         </p>
       </div>
       <div className="cards">
-        {data.map(({ image, series, title, link }, index) => (
+        {data.map(({ image, series, title, link, line }, index) => (
           <Card2
             image={image}
             series={series}
             title={title}
             link={link}
+            line={line}
             loading="lazy"
           />
         ))}
       </div>
       <div className="cards">
-        {data1.map(({ image, series, title, link }, index) => (
+        {data1.map(({ image, series, title, link, line }, index) => (
           <Card2
             image={image}
             series={series}
             title={title}
             link={link}
+            line={line}
             loading="lazy"
           />
         ))}
