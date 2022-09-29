@@ -42,7 +42,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
             <a href="#launch">Events</a>
           </li>
           <li>
-            <a href="#signup">Log in</a>
+          <Link to="/login">Log in</Link>
           </li>
           <li onClick={changeTheme}>
             {currentTheme === "dark" ? (

@@ -20,6 +20,7 @@ export default function Like() {
             recieve updates when we go live on 11/22. Don't miss out on the
             release of our new Event.
           </p>
+          
         </div>
         <div className="content">
           <div className="image">

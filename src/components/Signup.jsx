@@ -9,10 +9,10 @@ export default function Signup() {
           <p className="sub-title">Launching Soon</p>
           <h1 className="title">The Techno-Cultural Fest</h1>
           <p className="description">
-            The Event of Techies. Sign up below to
+            The Event of Techies. Contact below to
             recieve updates when we go live.
           </p>
-          <button>Sign Up</button>
+          <button>Contact Us</button>
         </div>
         <div className="image-container">
           <div className="image">

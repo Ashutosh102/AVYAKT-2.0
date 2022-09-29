@@ -8,7 +8,7 @@ import Home from "./components/Home";
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 import Release from "./components/Release";
-// import Contact from "./components/contact";
+// import App2 from "./App2";
 import ScrollToTop from "./components/ScrollToTop";
 import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
@@ -67,6 +67,7 @@ function App() {
       <SuperRare />
       <Release />
       <Like />
+      {/* <App2 /> */}
       <Signup />
       <Footer />
       

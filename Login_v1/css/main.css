@@ -120,6 +120,7 @@ button {
 	outline: none !important;
 	border: none;
 	background: transparent;
+  display: inline;
 }
 
 button:hover {

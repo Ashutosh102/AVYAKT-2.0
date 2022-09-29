@@ -59,6 +59,7 @@ export default function Home() {
             recieve updates when we go live.
           </p>
           <button>Sign Up</button>
+          
         </div>
         <div className="image-container">
           <div className="image">
