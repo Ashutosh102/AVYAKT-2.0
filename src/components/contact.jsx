@@ -1,13 +1,43 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useState } from "react";
 import Image from "./assets/contact1.png";
 import "./contacts.css";
-
+import * as Components from "./components";
+import axios from "axios";
 import "../sass/index.scss";
+
 const contact = () => {
-  
+  // const [inputs, setInputs] = useState({
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   message:""
+  // });
+  // const handleChange = (e) => {
+  //   setInputs((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  //   // console.log(inputs)
+  // };
+  // const sendRequest = async (e) => {
+  //   e.preventDefault();
+  //   console.log(inputs);
+    // const res = await axios
+    //   .post(``, {
+    //     name: inputs.name,
+    //     email: inputs.email,
+    //     phone: inputs.phone,
+    //     message:inputs.message
+    //   })
+    //   .catch((err) => console.log(err));
+
+    // const data = await res.data;
+    // console.log(data);
+    // return data;
+//  };
   return (
-    // <Components.Main>
+    <Components.Main>
     <section className="contact" id="contact">
   
   <div className="container">
@@ -48,7 +78,7 @@ const contact = () => {
     </div>
   </div>
 </section>
-
+</Components.Main>
 
   )
 }
