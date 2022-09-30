@@ -51,23 +51,23 @@ function Events() {
         {
           image: super1,
           series: "Technical",
-          title: "Blind Coding",
+          title: "Android App development",
          link: "#",
-         line: "Jack Of All Trades"
+         line: "By Department"
         },
         {
           image: super2,
           series: "Technical",
-          title: "Web Dev",
+          title: "Hack for Giet",
           link: "#",
-          line: "Hardwork Pays off"
+          line: "By GDSC"
         },
         {
           image: super3,
-          series: "Workshop",
-          title: "Hackathon",
+          series: "Technical",
+          title: "Code Soccer",
           link: "#",
-          line: "Creativity in every pixel"
+          line: "By DSC Club"
         },
         
         
@@ -79,22 +79,210 @@ function Events() {
             series: "Technical",
             title: "Blind Coding",
            link: "#",
-           line: "Jack Of All Trades"
+           line: "By DSC Club"
           },
           {
             image: super2,
             series: "Technical",
-            title: "Web Dev",
+            title: "Code Debugging",
             link: "#",
-            line: "Hardwork Pays off"
+            line: "By CyberSecurity Club"
           },
           {
             image: super3,
-            series: "Workshop",
-            title: "Hackathon",
+            series: "Technical",
+            title: "Web Puzzle",
             link: "#",
-            line: "Creativity in every pixel"
+            line: "By Web Eye"
           },
+        
+      ];
+      const data2 = [
+       
+        {
+            image: super1,
+            series: "Technical",
+            title: "Poster Making",
+           link: "#",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Technical",
+            title: "Robotics EVENT",
+            link: "#",
+            line: "By SARS Club"
+          },
+          {
+            image: super3,
+            series: "Technical",
+            title: "Workshop",
+            link: "#",
+            line: "By Department"
+          },
+        
+      ];
+      const data3 = [
+       
+        {
+            image: super1,
+            series: "Technical",
+            title: "Guest talks",
+           link: "#",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Technical",
+            title: "Innovative Idea Poster Presentation",
+            link: "#",
+            line: "By Department"
+          },
+          {
+            image: super3,
+            series: "Technical",
+            title: "Quiz",
+            link: "#",
+            line: "By Department"
+          },
+        
+      ];
+      const data4 = [
+       
+        {
+            image: super1,
+            series: "Non-Tech",
+            title: "Gaming",
+           link: "#",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Non-Tech",
+            title: "Group Discussion",
+            link: "#",
+            line: "By Dept."
+          },
+          {
+            image: super3,
+            series: "Non-Tech",
+            title: "Craft Making Workshop",
+            link: "#",
+            line: "By Department"
+          },
+        
+      ];
+      const data5 = [
+       
+        {
+            image: super1,
+            series: "Non-Tech",
+            title: "Treasure Hunt",
+           link: "#",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Non-Tech",
+            title: "Rangoli",
+            link: "#",
+            line: "By Dept."
+          },
+          {
+            image: super3,
+            series: "Non-Tech",
+            title: "Musical Chair",
+            link: "#",
+            line: "By Department"
+          },
+        
+      ];
+      const data6 = [
+       
+        {
+            image: super1,
+            series: "Non-Technical",
+            title: "Eureka",
+           link: "#",
+           line: "By PDCS CLUB"
+          },
+          {
+            image: super2,
+            series: "Non-Technical",
+            title: "G.K Quiz",
+            link: "#",
+            line: "By Organising Team"
+          },
+          {
+            image: super3,
+            series: "Non-Tech",
+            title: "CSE-GOT Tallent",
+            link: "#",
+            line: "By Department"
+          },
+        
+      ];
+      const data7 = [
+       
+        {
+            image: super1,
+            series: "Non-Technical",
+            title: "On the spot painting",
+           link: "#",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Non-Technical",
+            title: "CARTOONING",
+            link: "#",
+            line: "By Dept."
+          },
+          
+        
+      ];
+      const data8 = [
+       
+        {
+            image: super1,
+            series: "Cultural",
+            title: "Song",
+           link: "#",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Cultural",
+            title: "Dance",
+            link: "#",
+            line: "By Department"
+          },
+          {
+            image: super3,
+            series: "Cultural",
+            title: "Fashion Show",
+            link: "#",
+            line: "By Department"
+          },
+        
+      ];
+      const data9 = [
+       
+        {
+            image: super1,
+            series: "Cultural",
+            title: "Mono Acting/Mimicry",
+           link: "#",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Cultural",
+            title: "Drama",
+            link: "#",
+            line: "By Dept."
+          }
+         
         
       ];
   return (
@@ -107,9 +295,15 @@ function Events() {
       <div className="title-container">
         <h2 className="title">Events You are waiting for</h2>
         <p className="description">
-          Hurry Up and Register now <a href="#">here</a>.
+          Hurry Up and Register now.
         </p>
       </div>
+      <div className="content">
+          
+          <h1 className="title" style={{color:"#E40078"}}>Technical Events
+          </h1>
+          <p className="sub-title" style={{color:"#E40078"}}>Get your inner Geek out</p>
+          </div>
       <div className="cards">
         {data.map(({ image, series, title, link, line }, index) => (
           <Card
@@ -122,6 +316,7 @@ function Events() {
           />
         ))}
       </div>
+      
       <div className="cards">
         {data1.map(({ image, series, title, link, line}, index) => (
           <Card
@@ -135,7 +330,7 @@ function Events() {
         ))}
       </div>
       <div className="cards">
-        {data.map(({ image, series, title, link, line }, index) => (
+        {data2.map(({ image, series, title, link, line }, index) => (
           <Card
             image={image}
             series={series}
@@ -147,7 +342,25 @@ function Events() {
         ))}
       </div>
       <div className="cards">
-        {data.map(({ image, series, title, link, line }, index) => (
+        {data3.map(({ image, series, title, link, line }, index) => (
+          <Card
+            image={image}
+            series={series}
+            title={title}
+            link={link}
+            line={line}
+            loading="lazy"
+          />
+        ))}
+      </div>
+      <div className="content">
+          
+          <h1 className="title" style={{color:"#E40078"}}>Non-Technical Events
+          </h1>
+          <p className="sub-title" style={{color:"#E40078"}}>Get your inner student out</p>
+          </div>
+      <div className="cards">
+        {data4.map(({ image, series, title, link, line }, index) => (
           <Card
             image={image}
             series={series}
@@ -159,7 +372,61 @@ function Events() {
         ))}
       </div>
       <div className="cards">
-        {data.map(({ image, series, title, link, line }, index) => (
+        {data5.map(({ image, series, title, link, line }, index) => (
+          <Card
+            image={image}
+            series={series}
+            title={title}
+            link={link}
+            line={line}
+            loading="lazy"
+          />
+        ))}
+      </div>
+      <div className="cards">
+        {data6.map(({ image, series, title, link, line }, index) => (
+          <Card
+            image={image}
+            series={series}
+            title={title}
+            link={link}
+            line={line}
+            loading="lazy"
+          />
+        ))}
+      </div>
+      <div className="cards">
+        {data7.map(({ image, series, title, link, line }, index) => (
+          <Card
+            image={image}
+            series={series}
+            title={title}
+            link={link}
+            line={line}
+            loading="lazy"
+          />
+        ))}
+      </div>
+      <div className="content">
+          
+          <h1 className="title" style={{color:"#E40078"}}>Cultural Events
+          </h1>
+          <p className="sub-title" style={{color:"#E40078"}}>Get your inner artist out</p>
+          </div>
+      <div className="cards">
+        {data8.map(({ image, series, title, link, line }, index) => (
+          <Card
+            image={image}
+            series={series}
+            title={title}
+            link={link}
+            line={line}
+            loading="lazy"
+          />
+        ))}
+      </div>
+      <div className="cards">
+        {data9.map(({ image, series, title, link, line }, index) => (
           <Card
             image={image}
             series={series}
