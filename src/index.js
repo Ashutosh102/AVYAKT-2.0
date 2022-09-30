@@ -4,6 +4,7 @@ import App from "./App";
 import About from './components/About';
 import App2 from "./App2";
 import App3 from "./App3";
+import Events from "./components/Events";
 import {
   BrowserRouter,
   Routes,
@@ -19,7 +20,8 @@ ReactDOM.render(
         <Route path="/" element={ <App /> }/>
         <Route path="/login" element={ <App2 /> }/>
         <Route path="/contact" element={ <App3 /> }/>
-        <Route path="/about" element={<About />} >
+        <Route path="/about" element={<About />} />
+        <Route path="/events" element={<Events />} >
         </Route>
       </Routes>
     </BrowserRouter>

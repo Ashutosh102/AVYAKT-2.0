@@ -39,7 +39,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
           <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="#launch">Events</a>
+            <Link to="/events">Events</Link>
           </li>
           <li>
           <Link to="/contact">Contact</Link>

@@ -32,6 +32,7 @@ export default function SuperRare() {
       title: "Dance and song",
       
     },
+    
   ];
   return (
     <div className="super-rare">
