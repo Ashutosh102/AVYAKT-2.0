@@ -104,7 +104,7 @@ function Login() {
     <Components.Container>
     <div className="image-container">
       <Components.SignUpContainer signingIn={signIn}>
-        <Components.Form onSubmit={sendRequestsignup}>
+      <Components.Form onSubmit={sendRequestsignup}>
           <Components.Title>Create Account</Components.Title>
        {otp &&  <Components.Input type="text" placeholder="Name" name='sname' onChange={handleChange} value={inputs.sname} /> }
        {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail}/> }
@@ -113,10 +113,11 @@ function Login() {
   
   
         {otp && <Components.Button name="otp" onClick={sendRequestotp}>otp</Components.Button> }
+        {!otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled/> }
           { !otp &&  <Components.Input type="text" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
           {!otp && !signup && <Components.Button name="verify" onClick={sendRequestverify}>verify</Components.Button> }
 
-          {signup && <Components.Button name="submit" type="submit">Sign Up</Components.Button> }
+          {signup && <Components.Button name="submit" type="submit" onClick={() => toggle(true)}>Sign Up</Components.Button> }
         </Components.Form>
       </Components.SignUpContainer>
       <Components.SignInContainer signingIn={signIn}>
