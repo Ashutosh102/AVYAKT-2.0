@@ -66,7 +66,7 @@ function About() {
     },
     {
       image: super3,
-      series: "Grphics",
+      series: "Graphics",
       title: "Ankit Mahapatra",
       link: "https://www.linkedin.com/in/ankit-mahapatra-5184711bb",
       line: "Creativity in every pixel"
