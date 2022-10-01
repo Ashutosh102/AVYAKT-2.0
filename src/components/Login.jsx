@@ -129,8 +129,10 @@ function Login() {
           <Components.Input type="password" placeholder="Password"  name="password"
             onChange={handleChange}
             value={inputs.password}/>
-          <Components.Anchor href="#">
+          <Components.Anchor>
+            <Link to="/reset" style={{textDecoration:"none"}}>
             Forgot your password?
+            </Link>
           </Components.Anchor>
           <Components.Button name="submit"
                   type="submit" >Sign In</Components.Button>
