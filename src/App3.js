@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Contact from "./components/contact";
+import Contact from "./components/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import scrollreveal from "scrollreveal";
 import Navbar from "./components/Navbar";
