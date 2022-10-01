@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import * as Components from "./components";
 import "../sass/index.scss";
+import { useCookies } from 'react-cookie';
 import React, { useState } from "react";
 import eth1 from "../assets/GIET.png";
 import eth2 from "../assets/avyakt-L1.png";
@@ -14,9 +15,11 @@ import axios from "axios";
 
 
 function Login() {
+  let navigate = useNavigate();
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
-    const [signup,setsignup]=useState(false);
+    // const [signup,setsignup]=useState(false);
+    const [cookies, setCookie] = useCookies(['user']);
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -46,13 +49,21 @@ function Login() {
           alert("Wrong credentials")});
   
       const data = await res.data;
-      console.log(data);
-      
+      // console.log(data);
+      if (res.status === 200) {
+        navigate('/');
+      }
       alert("id verified")
       localStorage.setItem('user', res.data)
       console.log(res.data)
       return data;
     };
+
+    const handle = () => {
+      setCookie('Email', inputs.semail, { path: '/' });
+      setCookie('Password',inputs.spass, { path: '/' });
+   };
+    
     const sendRequestotp = async (e) => {
       // e.preventDefault();
       console.log(inputs.email);
@@ -90,6 +101,7 @@ function Login() {
       sendRequestotp();
       return data;
     };
+    
     
     const sendRequestverify = async (e) => {
       e.preventDefault();
@@ -151,7 +163,7 @@ function Login() {
             Forgot your password?</Link>
           </Components.Anchor>
           <Components.Button name="submit"
-                  type="submit" >Sign In</Components.Button>
+                  type="submit" onClick={handle}>Sign In</Components.Button>
         </Components.Form>
       </Components.SignInContainer>
       <Components.OverlayContainer signingIn={signIn}>
@@ -201,4 +213,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login;

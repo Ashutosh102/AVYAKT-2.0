@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Login from "./components/Login";
 import ScrollToTop from "./components/ScrollToTop";
 import scrollreveal from "scrollreveal";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./sass/index.scss";

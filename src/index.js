@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { CookiesProvider } from "react-cookie";
 import About from './components/About';
 import App2 from "./App2";
 import App3 from "./App3";
@@ -14,6 +15,7 @@ import {
 } from "react-router-dom";
 
 ReactDOM.render(
+  <CookiesProvider>
   <React.StrictMode>
     
     <BrowserRouter>
@@ -30,6 +32,7 @@ ReactDOM.render(
     
     
        
-  </React.StrictMode>,
+  </React.StrictMode>
+  </CookiesProvider>,
   document.getElementById("root")
 );

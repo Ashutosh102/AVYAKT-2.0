@@ -1,61 +1,140 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import * as Components from "./components";
 import "../sass/index.scss";
+import { useCookies } from 'react-cookie';
 import React, { useState } from "react";
 import eth1 from "../assets/GIET.png";
 import eth2 from "../assets/avyakt-L1.png";
 import axios from "axios";
 
 function Reset() {
-    const [signIn, toggle] = React.useState(true);
-  const [otp,setOtp]=useState(true);
-  const [signup,setsignup]=useState(false);
-  const [inputs, setInputs] = useState({
+  let navigate = useNavigate();
+  const [signIn, toggle] = React.useState(true);
+    const [otp,setOtp]=useState(true);
+    // const [signup,setsignup]=useState(false);
+    const [cookies, setCookie] = useCookies(['user']);
+    const [inputs, setInputs] = useState({
+      
+      email: "",
+      password: "",
+      sname:"",
+      semail:"",
+      sroll:"",
+      spass:"",
+      otp:"",
+      snum:"",
+      syear:""
+    });
+    const handleChange = (e) => {
+      setInputs((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
+      // console.log(inputs)
+    };
+    const sendRequestlogin = async (e) => {
+      e.preventDefault();
+      console.log(inputs);
+      const res = await axios.post('https://backend-fest.onrender.com/login', {
+        email: inputs.email,
+        password:inputs.password
+        }).catch((err) => {console.log(err)
+          alert("Wrong credentials")});
+  
+      const data = await res.data;
+      // console.log(data);
+      if (res.status === 200) {
+        navigate('/');
+      }
+      alert("id verified")
+      localStorage.setItem('user', res.data)
+      console.log(res.data)
+      return data;
+    };
+
+    const handle = () => {
+      setCookie('Email', inputs.semail, { path: '/' });
+      setCookie('Password',inputs.spass, { path: '/' });
+   };
     
-    email: "",
-    otp:"",
-    password: "",
-   
+    const sendRequestotp = async (e) => {
+      // e.preventDefault();
+      console.log(inputs.email);
+      const res = await axios
+        .post(`https://backend-fest.onrender.com/sendotp`, {
+          email:inputs.semail,
+           })
+        .catch((err) => console.log(err));
+  
+      const data = await res.data;
+      console.log(data);
+      // setOtp(!otp);
+      return data;
+    };
     
-  });
-  const handleChange = (e) => {
-    setInputs((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-    // console.log(inputs)
-  };
+    const sendRequestregister = async (e) => {
+      e.preventDefault();
+      console.log(inputs);
+
+      const res = await axios
+        .post(`https://backend-fest.onrender.com/register`, {
+            name:inputs.sname,
+            email:inputs.semail,
+            password:inputs.spass,
+            number:inputs.snum,
+            
+            rollno:inputs.sroll,
+            year:inputs.syear
+        })
+        .catch((err) => console.log(err));
+        
+      const data = await res.data;
+      console.log(data);
+      setOtp(!otp);
+      sendRequestotp();
+      return data;
+    };
+    
+    
+    const sendRequestverify = async (e) => {
+      e.preventDefault();
+      console.log(inputs.otp);
+
+      const res = await axios
+        .post(`https://backend-fest.onrender.com/verifyotp`, {
+          email:inputs.semail,
+          otp:parseInt(inputs.otp)
+
+        })
+        .catch((err) => {console.log(err)
+        alert("Wrong OTP")
+      });
+  
+      const data = await res.data;
+      console.log(data);
+      alert("otp verified")
+      return data;
+      
+      
+    };
   const sendRequestReset = async (e) => {
     e.preventDefault();
     console.log(inputs);
     const res = await axios
-      .post(`/reset-password`, {
+      .post(`https://backend-fest.onrender.com/reset-password`, {
         
-        email: inputs.email,
+        email: inputs.semail,
         otp: inputs.otp,
-        password: inputs.password,
+        password: inputs.spass,
       })
       .catch((err) => console.log(err));
 
     const data = await res.data;
     console.log(data);
+    alert("Password Reset Successfully");
     return data;
   };
-  const sendRequestlogin = async (e) => {
-    e.preventDefault();
-    console.log(inputs);
-    const res = await axios
-      .post(`/login`, {
-        
-        email: inputs.email,
-        password: inputs.password,
-      })
-      .catch((err) => console.log(err));
-
-    const data = await res.data;
-    console.log(data);
-    return data;
-  };
+  
   return (
     <Components.Main>
     <Components.Container>
@@ -71,19 +150,22 @@ function Reset() {
             value={inputs.password}/>
           
           <Components.Button name="submit"
-                  type="submit" >Sign In</Components.Button>
+                  type="submit" onClick={handle}>Sign In</Components.Button>
         </Components.Form>
       </Components.SignUpContainer>
       <Components.SignInContainer signingIn={signIn}>
       <Components.Form onSubmit={sendRequestReset}>
           <Components.Title>Submit New password</Components.Title>
        
-       {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail}/> }
-       {otp &&  <Components.Input type="otp" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
-       {otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass}/> }
+          {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail}/> }
+          {otp && <Components.Button name="otp" onClick={sendRequestotp}>Send otp</Components.Button> }
+          {!otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled/> }
+          { !otp &&  <Components.Input type="number" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
+        {!otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass}/> }
+        {!otp  && <Components.Button name="verify" onClick={sendRequestverify}>verify</Components.Button> }
   
-  
-        {otp && <Components.Button name="submit" type="submit" onClick={() => toggle(false)}>Submit</Components.Button> }
+        {/* {!!otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass} disabled/> }
+        {!!otp && <Components.Button name="submit" type="submit" onClick={() => toggle(false)}>Submit</Components.Button> } */}
        
         </Components.Form>
         
