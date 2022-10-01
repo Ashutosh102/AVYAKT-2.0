@@ -32,9 +32,11 @@ const Contact = () => {
     subject:inputs.subject, 
     number:inputs.phone
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {console.log(err)
+        alert("Form not submitted");});
 
     const data = await res.data;
+    alert("Form Submitted Successfully");
     console.log(data);
     return data;
   };
