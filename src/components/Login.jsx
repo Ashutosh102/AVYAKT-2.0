@@ -19,7 +19,7 @@ function Login() {
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [cookies, setCookie] = useCookies(['user']);
+    const [cookies, setCookie, removeCookie] = useCookies(['user']);
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -51,6 +51,8 @@ function Login() {
       const data = await res.data;
       // console.log(data);
       if (res.status === 200) {
+        setCookie('Email', inputs.semail, { path: '/' });
+      setCookie('Password',inputs.spass, { path: '/' });
         navigate('/');
       }
       alert("id verified")

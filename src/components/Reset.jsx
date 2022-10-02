@@ -12,7 +12,7 @@ function Reset() {
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [cookies, setCookie] = useCookies(['user']);
+    const [cookies, setCookie] = useCookies();
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -68,7 +68,7 @@ function Reset() {
   
       const data = await res.data;
       console.log(data);
-      // setOtp(!otp);
+      setOtp(!otp);
       return data;
     };
     
@@ -113,6 +113,7 @@ function Reset() {
       const data = await res.data;
       console.log(data);
       alert("otp verified")
+      sendRequestReset();
       return data;
       
       
@@ -120,6 +121,7 @@ function Reset() {
   const sendRequestReset = async (e) => {
     e.preventDefault();
     console.log(inputs);
+    setOtp(!otp);
     const res = await axios
       .post(`https://backend-fest.onrender.com/reset-password`, {
         
@@ -157,12 +159,13 @@ function Reset() {
       <Components.Form onSubmit={sendRequestReset}>
           <Components.Title>Submit New password</Components.Title>
        
-          {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail}/> }
-          {otp && <Components.Button name="otp" onClick={sendRequestotp}>Send otp</Components.Button> }
+          {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={cookies.Email} disabled/> }
+          {otp && <Components.Button name="otp" onClick={sendRequestReset}>Send otp</Components.Button> }
           {!otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled/> }
-          { !otp &&  <Components.Input type="number" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
+          { !otp &&  <Components.Input type="otp" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
         {!otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass}/> }
-        {!otp  && <Components.Button name="verify" onClick={sendRequestverify}>verify</Components.Button> }
+        {!otp  && <Components.Button name="submit"
+                  type="submit">verify</Components.Button> }
   
         {/* {!!otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass} disabled/> }
         {!!otp && <Components.Button name="submit" type="submit" onClick={() => toggle(false)}>Submit</Components.Button> } */}

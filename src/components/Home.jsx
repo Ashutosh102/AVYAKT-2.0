@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 
 
 export default function Home() {
-  const [cookies, setCookie] = useCookies();
+  const [cookies, removeCookie] = useCookies();
   return (
     
     <div className="home">
@@ -62,8 +62,8 @@ export default function Home() {
             Don't miss out on the release of our new Techno-Cultural Fest. Sign up below to
             recieve updates when we go live.
           </p>
-          <button>
-          {cookies.Email ?<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}>Log Out</Link>:<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}>Log in</Link>}
+          <button onClick={removeCookie()}>
+          {cookies.Email ?<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}} >Log Out</Link>:<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}>Log in</Link>}
           </button>
           
         </div>
