@@ -1,15 +1,61 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { ImSun } from "react-icons/im";
 import { BsFillMoonFill } from "react-icons/bs";
 import logo from "../assets/avyakt.png";
+import "../sass/index.scss";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
+import { RiAccountPinCircleFill } from "react-icons/ri";
+// import "rsuite/dist/rsuite.min.css";
+
+// import {CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle } from '@coreui/react';
+
+// import { Popover, Whisper, Dropdown, 
+//     Button } from "rsuite/";
+
 export default function Navbar({ changeTheme, currentTheme }) {
   const [navState, setNavState] = useState(false);
   const [cookies] = useCookies();
   let Email = cookies.Email;
+//   const renderMenu = ({ left, top, className }, ref) => {
+  
+//     return (
+//         <Popover ref={ref} 
+//             className={className} 
+//             style={{ left, top }} full>
+//             <Dropdown.Menu title="Create new file">
+//                 <Dropdown.Item eventKey={1}>
+//                     {Email}
+//                 </Dropdown.Item>
+//                 <Dropdown.Item eventKey={2}>
+//                 <Link to="/login">Log out</Link>
+//                 </Dropdown.Item>
+                
+//             </Dropdown.Menu>
+//         </Popover>
+//     );
+// };
+// function myFunction() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+
+// return(
+// // Close the dropdown if the user clicks outside of it
+// window.onclick = function(event) {
+  
+//   if (!event.target.matches('.dropbtn')) {
+//     var dropdowns = document.getElementsByClassName("dropdown-content");
+//     var i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       var openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains('show')) {
+//         openDropdown.classList.remove('show');
+//       }
+//     }
+//   }
+// })}
   // const auth = sendRequestlogin();
   return (
     <nav>
@@ -49,7 +95,11 @@ export default function Navbar({ changeTheme, currentTheme }) {
           <Link to="/contact">Contact</Link>
           </li>
           <li>
-          {cookies.Email ?<Link to="/">{Email}</Link>: <Link to="/login">Log in</Link>}
+          {/* <Whisper placement="bottomStart" 
+                    trigger="click" speaker={renderMenu}>
+                    <Button appearance="primary" color="green"><RiAccountPinCircleFill/> Hello</Button></Whisper> */}
+          {cookies.Email ? <Link to="/"><RiAccountPinCircleFill/> Hello </Link> : 
+           <Link to="/login">Log in</Link>}
           </li>
           <li onClick={changeTheme}>
             {currentTheme === "dark" ? (
