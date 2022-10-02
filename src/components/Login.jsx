@@ -19,7 +19,7 @@ function Login() {
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [, setCookie] = useCookies(['user']);
+    const [cookies, setCookie, removeCookie] = useCookies(['Email', 'Password']);
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -51,8 +51,8 @@ function Login() {
       const data = await res.data;
       // console.log(data);
       if (res.status === 200) {
-        setCookie('Email', inputs.semail, { path: '/' });
-      setCookie('Password',inputs.spass, { path: '/' });
+        setCookie('Email', inputs.email, { path: '/' });
+        setCookie('Password',inputs.password, { path: '/' });
         navigate('/');
       }
       alert("id verified")
@@ -62,8 +62,8 @@ function Login() {
     };
 
     const handle = () => {
-      setCookie('Email', inputs.semail, { path: '/' });
-      setCookie('Password',inputs.spass, { path: '/' });
+      setCookie('Email', inputs.email, { path: '/' });
+      setCookie('Password',inputs.password, { path: '/' });
    };
     
     const sendRequestotp = async () => {
