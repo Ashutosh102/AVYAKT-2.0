@@ -19,7 +19,7 @@ function Login() {
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [cookies, setCookie, removeCookie] = useCookies(['user']);
+    const [, setCookie] = useCookies(['user']);
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -66,7 +66,7 @@ function Login() {
       setCookie('Password',inputs.spass, { path: '/' });
    };
     
-    const sendRequestotp = async (e) => {
+    const sendRequestotp = async () => {
       // e.preventDefault();
       console.log(inputs.email);
       const res = await axios

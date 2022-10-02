@@ -62,7 +62,7 @@ export default function Home() {
             Don't miss out on the release of our new Techno-Cultural Fest. Sign up below to
             recieve updates when we go live.
           </p>
-          <button onClick={removeCookie()}>
+          <button>
           {cookies.Email ?<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}} >Log Out</Link>:<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}>Log in</Link>}
           </button>
           

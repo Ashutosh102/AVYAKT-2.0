@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link, useNavigate} from "react-router-dom";
 import * as Components from "./components";
 import "../sass/index.scss";
@@ -72,28 +73,6 @@ function Reset() {
       return data;
     };
     
-    const sendRequestregister = async (e) => {
-      e.preventDefault();
-      console.log(inputs);
-
-      const res = await axios
-        .post(`https://backend-fest.onrender.com/register`, {
-            name:inputs.sname,
-            email:inputs.semail,
-            password:inputs.spass,
-            number:inputs.snum,
-            
-            rollno:inputs.sroll,
-            year:inputs.syear
-        })
-        .catch((err) => console.log(err));
-        
-      const data = await res.data;
-      console.log(data);
-      setOtp(!otp);
-      sendRequestotp();
-      return data;
-    };
     
     
     const sendRequestverify = async (e) => {
