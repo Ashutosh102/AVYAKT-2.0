@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 export default function Navbar({ changeTheme, currentTheme }) {
   const [navState, setNavState] = useState(false);
   const [cookies] = useCookies();
+  let Email = cookies.Email.slice(0,8);
   // const auth = sendRequestlogin();
   return (
     <nav>
@@ -48,7 +49,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
           <Link to="/contact">Contact</Link>
           </li>
           <li>
-          {cookies ?<Link to="/">{cookies.Email.slice(0,8)}</Link>: <Link to="/login">Log in</Link>}
+          {cookies ?<Link to="/">{Email}</Link>: <Link to="/login">Log in</Link>}
           </li>
           <li onClick={changeTheme}>
             {currentTheme === "dark" ? (
