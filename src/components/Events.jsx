@@ -52,7 +52,7 @@ function Events() {
           image: super1,
           series: "Technical",
           title: "Android App development",
-         link: "#",
+         link: '/android-dev',
          line: "By Department"
         },
         {

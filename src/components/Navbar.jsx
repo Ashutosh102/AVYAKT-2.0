@@ -8,6 +8,8 @@ import logo from "../assets/avyakt.png";
 import "../sass/index.scss";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import { RiAccountPinCircleFill } from "react-icons/ri";
 // import "rsuite/dist/rsuite.min.css";
 
@@ -98,7 +100,17 @@ export default function Navbar({ changeTheme, currentTheme }) {
           {/* <Whisper placement="bottomStart" 
                     trigger="click" speaker={renderMenu}>
                     <Button appearance="primary" color="green"><RiAccountPinCircleFill/> Hello</Button></Whisper> */}
-          {cookies.Email ? <Link to="/"><RiAccountPinCircleFill/> Hello </Link> : 
+         
+
+          {cookies.Email ? <Popup trigger={<Link to="/"> <RiAccountPinCircleFill/> Hello </Link>} 
+     position="left">
+      {/* <div>{Email}</div> */}
+      <div>
+      <h6><RiAccountPinCircleFill/>{Email}</h6>
+      <br/>
+      <h3 style={{fontFamily:"Montserrat"}}><Link to="/login" style={{textDecoration:"none", color:"White", backgroundColor:"Orange", padding:"5px"}}>Log Out</Link></h3>
+      </div>
+    </Popup> : 
            <Link to="/login">Log in</Link>}
           </li>
           <li onClick={changeTheme}>

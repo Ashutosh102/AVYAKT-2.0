@@ -7,6 +7,7 @@ import App2 from "./App2";
 import App3 from "./App3";
 import App4 from "./App4";
 import Events from "./components/Events";
+import Andev from "./components/Andev";
 import {
   BrowserRouter,
   Routes,
@@ -25,7 +26,8 @@ ReactDOM.render(
         <Route path="/contact" element={ <App3 /> }/>
         <Route path="/reset" element={ <App4 /> }/>
         <Route path="/about" element={<About />} />
-        <Route path="/events" element={<Events />} >
+        <Route path="/events" element={<Events />} />
+        <Route path="/android-dev" element={<Andev />} >
         </Route>
       </Routes>
     </BrowserRouter>

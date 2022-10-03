@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react'
 import "../sass/index.scss";
-
+import { Link } from "react-router-dom";
 export default function Card3({ image, series, title, link, line }) {
   return (
     <div className="card">
@@ -26,7 +27,7 @@ export default function Card3({ image, series, title, link, line }) {
         <br/>
         <div className="card-sub-details">
           <span>#GIETU</span>
-          <span><a href={link} class="glow-button" target="_blank">Register</a></span>
+          <span><a class="glow-button" target="_blank"><Link to={link}>Register</Link></a></span>
         </div>
         <br/>
       </div>

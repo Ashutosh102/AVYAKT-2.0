@@ -21,7 +21,7 @@ function Login() {
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [cookies, setCookie, removeCookie] = useCookies(['Email', 'Password']);
+    const [cookies, setCookie, removeCookie] = useCookies(['Email', 'Password', 'token']);
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -70,8 +70,9 @@ function Login() {
           draggable: true,
           progress: undefined,
           });
-        setCookie('Email', inputs.email, { path: '/' });
-        setCookie('Password',inputs.password, { path: '/' });
+        setCookie('Email', inputs.email , { path: '/' });
+        setCookie('user', res.data , { path: '/' });
+       
         navigate('/',  { replace: true });
         
         window.location.reload();
@@ -84,7 +85,7 @@ function Login() {
 
     const handle = () => {
       setCookie('Email', inputs.email, { path: '/' });
-      setCookie('Password',inputs.password, { path: '/' });
+     
    };
     
     const sendRequestotp = async () => {
@@ -168,7 +169,7 @@ function Login() {
   
       const data = await res.data;
       console.log(data);
-      toast.success('🦄 Wow so easy!', {
+      toast.success('🦄 OTP verified!', {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,

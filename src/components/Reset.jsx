@@ -15,7 +15,7 @@ function Reset() {
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [cookies, setCookie] = useCookies();
+    const [cookies, setCookie] = useCookies(['Email', 'Password', 'token']);
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -65,7 +65,7 @@ function Reset() {
           progress: undefined,
           });
         setCookie('Email', inputs.email, { path: '/' });
-        setCookie('Password',inputs.password, { path: '/' });
+        setCookie('user', res.data, { path: '/' });
         navigate('/',  { replace: true });
         
         window.location.reload();
@@ -76,10 +76,7 @@ function Reset() {
       return data;
     };
 
-    const handle = () => {
-      setCookie('Email', inputs.semail, { path: '/' });
-      setCookie('Password',inputs.spass, { path: '/' });
-   };
+    
     
     const sendRequestotp = async (e) => {
       e.preventDefault();
@@ -192,7 +189,7 @@ function Reset() {
             value={inputs.password}/>
           
           <Components.Button name="submit"
-                  type="submit" onClick={handle}>Sign In</Components.Button>
+                  type="submit" >Sign In</Components.Button>
                   <ToastContainer
 position="top-center"
 autoClose={5000}
