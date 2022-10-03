@@ -8,13 +8,26 @@ import Home from "./components/Home";
 import Like from "./components/Like";
 import Navbar from "./components/Navbar";
 import Release from "./components/Release";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import App2 from "./App2";
 import ScrollToTop from "./components/ScrollToTop";
 import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
 import scrollreveal from "scrollreveal";
+import { useCookies } from "react-cookie";
 import "./sass/index.scss";
 function App() {
+  toast.success('🦄 Logged in succesfully!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+  const [cookies] = useCookies();
   const [theme, setTheme] = useState("dark");
   const changeTheme = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
@@ -56,7 +69,17 @@ function App() {
   return (
     <>
     <div data-theme={theme} className="app-container">
-      
+    {cookies.Email ? <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>: null}
       <ScrollToTop />
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
       <Home />

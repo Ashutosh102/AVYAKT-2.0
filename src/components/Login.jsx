@@ -8,6 +8,8 @@ import React, { useState } from "react";
 import eth1 from "../assets/GIET.png";
 import eth2 from "../assets/avyakt-L1.png";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
@@ -46,16 +48,35 @@ function Login() {
         email: inputs.email,
         password:inputs.password
         }).catch((err) => {console.log(err)
-          alert("Wrong credentials")});
+          toast.warn('🚫 Wrong Credentials!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });});
   
       const data = await res.data;
       // console.log(data);
       if (res.status === 200) {
+        toast.success('🦄Logged in succesfully!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
         setCookie('Email', inputs.email, { path: '/' });
         setCookie('Password',inputs.password, { path: '/' });
-        navigate('/');
+        navigate('/',  { replace: true });
+        
+        window.location.reload();
       }
-      alert("id verified")
+      
       localStorage.setItem('user', res.data)
       console.log(res.data)
       return data;
@@ -73,7 +94,16 @@ function Login() {
         .post(`https://backend-fest.onrender.com/sendotp`, {
           email:inputs.semail,
            })
-        .catch((err) => console.log(err));
+        .catch((err) => {console.log(err)
+          toast.warn('🚫 Wrong OTP!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            })});
   
       const data = await res.data;
       console.log(data);
@@ -95,7 +125,16 @@ function Login() {
             rollno:inputs.sroll,
             year:inputs.syear
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {console.log(err)
+          toast.warn('🚫 Not signed in try again!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            })});
         
       const data = await res.data;
       console.log(data);
@@ -116,12 +155,28 @@ function Login() {
 
         })
         .catch((err) => {console.log(err)
-        alert("Wrong OTP")
+          toast.warn('🚫 Wrong OTP!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            })
       });
   
       const data = await res.data;
       console.log(data);
-      alert("otp verified")
+      toast.success('🦄 Wow so easy!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
       return data;
       
       
@@ -130,6 +185,7 @@ function Login() {
   
   return (
     <Components.Main>
+      
     <Components.Container>
     <div className="image-container">
     <Components.SignUpContainer signingIn={signIn}>
@@ -147,7 +203,17 @@ function Login() {
         {!otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled/> }
           { !otp &&  <Components.Input type="number" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
           {!otp  && <Components.Button name="verify" onClick={sendRequestverify}><Link to="/" style={{textDecoration:"none", color:"white"}}>verify</Link></Components.Button> }
-
+          <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
           {/* {signup && <Components.Button name="submit" type="submit">Sign Up</Components.Button> } */}
         </Components.Form>
       </Components.SignUpContainer>
@@ -166,6 +232,17 @@ function Login() {
           </Components.Anchor>
           <Components.Button name="submit"
                   type="submit" onClick={handle}>Sign In</Components.Button>
+               <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>   
         </Components.Form>
       </Components.SignInContainer>
       <Components.OverlayContainer signingIn={signIn}>

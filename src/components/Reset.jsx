@@ -6,13 +6,16 @@ import React, { useState } from "react";
 import eth1 from "../assets/GIET.png";
 import eth2 from "../assets/avyakt-L1.png";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Reset() {
   let navigate = useNavigate();
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [cookies, setCookie] = useCookies(['user']);
+    const [cookies, setCookie] = useCookies();
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -39,16 +42,35 @@ function Reset() {
         email: inputs.email,
         password:inputs.password
         }).catch((err) => {console.log(err)
-          alert("Wrong credentials")});
+          toast.warn('🚫 Wrong Credentials!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });});
   
       const data = await res.data;
       // console.log(data);
       if (res.status === 200) {
+        toast.success('🦄Logged in succesfully!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
         setCookie('Email', inputs.email, { path: '/' });
         setCookie('Password',inputs.password, { path: '/' });
-        navigate('/');
+        navigate('/',  { replace: true });
+        
+        window.location.reload();
       }
-      alert("id verified")
+      
       localStorage.setItem('user', res.data)
       console.log(res.data)
       return data;
@@ -130,11 +152,28 @@ function Reset() {
         otp: parseInt(inputs.otp),
         newpassword: inputs.spass,
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {console.log(err)
+        toast.warn('🦄 Wrong credentials hero!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });});
 
     const data = await res.data;
     console.log(data);
-    alert("Password Reset Successfully");
+    toast.success('🦄 Password reset successfully!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
     return data;
   };
   
@@ -154,18 +193,40 @@ function Reset() {
           
           <Components.Button name="submit"
                   type="submit" onClick={handle}>Sign In</Components.Button>
+                  <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
         </Components.Form>
       </Components.SignUpContainer>
       <Components.SignInContainer signingIn={signIn}>
       <Components.Form onSubmit={sendRequestReset}>
           <Components.Title>Submit New password</Components.Title>
        
-          {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail}/> }
+          {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={cookies.Email}/> }
           {otp && <Components.Button name="otp" onClick={sendRequestotp}>Send otp</Components.Button> }
           {!otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled/> }
           { !otp &&  <Components.Input type="number" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
         {!otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass}/> }
         {!otp  && <Components.Button name="verify" onClick={sendRequestReset} >Reset</Components.Button> }
+        <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
   
         {/* {!!otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass} disabled/> }
         {!!otp && <Components.Button name="submit" type="submit" onClick={() => toggle(false)}>Submit</Components.Button> } */}
