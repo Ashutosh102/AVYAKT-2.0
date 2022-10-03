@@ -27,7 +27,7 @@ export default function Card3({ image, series, title, link, line }) {
         <br/>
         <div className="card-sub-details">
           <span>#GIETU</span>
-          <span><a class="glow-button" target="_blank"><Link to={link}>Register</Link></a></span>
+          <span><a class="glow-button" target="_blank"><Link to={link} style={{textDecoration:"none", color: "white"}}>Register</Link></a></span>
         </div>
         <br/>
       </div>
