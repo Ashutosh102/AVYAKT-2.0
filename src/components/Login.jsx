@@ -201,6 +201,7 @@ function Login() {
   
   
   return (
+    <>
     <Components.Main>
       
     <Components.Container>
@@ -306,6 +307,7 @@ pauseOnHover
       </div>
     </Components.Container>
     </Components.Main>
+    </>
   )
 }
 

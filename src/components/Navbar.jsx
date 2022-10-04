@@ -7,7 +7,7 @@ import { BsFillMoonFill } from "react-icons/bs";
 import logo from "../assets/avyakt.png";
 import "../sass/index.scss";
 import { useCookies, removeCookie } from "react-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Popup from "reactjs-popup";
 
 import { RiAccountPinCircleFill } from "react-icons/ri";
@@ -20,11 +20,13 @@ import { RiAccountPinCircleFill } from "react-icons/ri";
 
 export default function Navbar({ changeTheme, currentTheme }) {
   const [navState, setNavState] = useState(false);
+  let navigate = useNavigate();
   const [cookies] = useCookies(['Email', 'user']);
   let Email = cookies.Email;
   function handleRemoveCookie() {
     removeCookie('user');
     removeCookie('Email');
+    navigate('/login');
   }
   //   const renderMenu = ({ left, top, className }, ref) => {
 
@@ -193,7 +195,6 @@ export default function Navbar({ changeTheme, currentTheme }) {
                    </div>
                    <div className="actions">
                      <button className="button"> <Link
-                       to="/login"
                        style={{
                          textDecoration: "none",
                          color: "white"
