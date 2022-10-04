@@ -1,4 +1,6 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
 
 import { Link, useNavigate} from "react-router-dom";
 import * as Components from "./components";
@@ -17,6 +19,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 function Login() {
+  
   let navigate = useNavigate();
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
@@ -127,7 +130,7 @@ function Login() {
             year:inputs.syear
         })
         .catch((err) => {console.log(err)
-          toast.warn('🚫 Not signed in try again!', {
+          toast.warn('🚫 Not Registered try again!', {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -136,14 +139,26 @@ function Login() {
             draggable: true,
             progress: undefined,
             })});
-        
-      const data = await res.data;
+        const data = await res.data;
+      if (inputs.semail.includes("@giet.edu").toString() ==="true") {
+      
       console.log(data);
       setOtp(!otp);
       sendRequestotp();
       return data;
-    };
-    
+    }
+    else{
+      toast.warn('🚫 Not a GIET mail id!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
+  }
     
     const sendRequestverify = async (e) => {
       e.preventDefault();
@@ -178,6 +193,7 @@ function Login() {
         draggable: true,
         progress: undefined,
         });
+       toggle(true)
       return data;
       
       
@@ -203,7 +219,7 @@ function Login() {
         {otp && <Components.Button name="otp" onClick={sendRequestregister}>otp</Components.Button> }
         {!otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled/> }
           { !otp &&  <Components.Input type="number" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
-          {!otp  && <Components.Button name="verify" onClick={sendRequestverify}><Link to="/" style={{textDecoration:"none", color:"white"}}>verify</Link></Components.Button> }
+          {!otp  && <Components.Button name="verify" onClick={sendRequestverify}><Link style={{textDecoration:"none", color:"white"}}>verify</Link></Components.Button> }
           <ToastContainer
 position="top-center"
 autoClose={5000}

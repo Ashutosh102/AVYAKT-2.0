@@ -112,7 +112,7 @@ function About() {
           The offscreen heroes who made this possible
         </p>
       </div>
-      <div className="cards">
+      <div className="cards2">
         {data.map(({ image, series, title, link, line }, index) => (
           <Card2
             image={image}
@@ -124,7 +124,7 @@ function About() {
           />
         ))}
       </div>
-      <div className="cards">
+      <div className="cards2">
         {data1.map(({ image, series, title, link, line }, index) => (
           <Card2
             image={image}

@@ -14,6 +14,10 @@ import super1 from "../assets/fest-1.png";
 import super2 from "../assets/fest-2.png";
 import super3 from "../assets/fest-3.png";
 import super4 from "../assets/fest-4.png";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import Slider from "react-slick";
 function Events() {
     const [theme, setTheme] = useState("dark");
   const changeTheme = () => {
@@ -69,84 +73,75 @@ function Events() {
           link: "#",
           line: "By DSC Club"
         },
-        
-        
-      ];
-      const data1 = [
-       
         {
-            image: super1,
-            series: "Technical",
-            title: "Blind Coding",
-           link: "#",
-           line: "By DSC Club"
-          },
-          {
-            image: super2,
-            series: "Technical",
-            title: "Code Debugging",
-            link: "#",
-            line: "By CyberSecurity Club"
-          },
-          {
-            image: super3,
-            series: "Technical",
-            title: "Web Puzzle",
-            link: "#",
-            line: "By Web Eye"
-          },
-        
-      ];
-      const data2 = [
-       
+          image: super1,
+          series: "Technical",
+          title: "Blind Coding",
+         link: "#",
+         line: "By DSC Club"
+        },
         {
-            image: super1,
-            series: "Technical",
-            title: "Poster Making",
-           link: "#",
-           line: "By Department"
-          },
-          {
-            image: super2,
-            series: "Technical",
-            title: "Robotics EVENT",
-            link: "#",
-            line: "By SARS Club"
-          },
-          {
-            image: super3,
-            series: "Technical",
-            title: "Workshop",
-            link: "#",
-            line: "By Department"
-          },
-        
-      ];
-      const data3 = [
-       
+          image: super2,
+          series: "Technical",
+          title: "Code Debugging",
+          link: "#",
+          line: "By CyberSecurity Club"
+        },
         {
-            image: super1,
-            series: "Technical",
-            title: "Guest talks",
-           link: "#",
-           line: "By Department"
-          },
-          {
-            image: super2,
-            series: "Technical",
-            title: "Innovative Idea Poster Presentation",
-            link: "#",
-            line: "By Department"
-          },
-          {
-            image: super3,
-            series: "Technical",
-            title: "Quiz",
-            link: "#",
-            line: "By Department"
-          },
+          image: super3,
+          series: "Technical",
+          title: "Web Puzzle",
+          link: "#",
+          line: "By Web Eye"
+        },
+        {
+          image: super1,
+          series: "Technical",
+          title: "Poster Making",
+         link: "#",
+         line: "By Department"
+        },
+        {
+          image: super2,
+          series: "Technical",
+          title: "Robotics EVENT",
+          link: "#",
+          line: "By SARS Club"
+        },
+        {
+          image: super3,
+          series: "Technical",
+          title: "Workshop",
+          link: "#",
+          line: "By Department"
+        },
+        {
+          image: super1,
+          series: "Technical",
+          title: "Guest talks",
+         link: "#",
+         line: "By Department"
+        },
+        {
+          image: super2,
+          series: "Technical",
+          title: "Innovative Idea Poster Presentation",
+          link: "#",
+          line: "By Department"
+        },
+        {
+          image: super3,
+          series: "Technical",
+          title: "Quiz",
+          link: "#",
+          line: "By Department"
+        },
+        
         
       ];
+      
+      
+      
       const data4 = [
        
         {
@@ -170,11 +165,7 @@ function Events() {
             link: "#",
             line: "By Department"
           },
-        
-      ];
-      const data5 = [
-       
-        {
+          {
             image: super1,
             series: "Non-Tech",
             title: "Treasure Hunt",
@@ -194,12 +185,8 @@ function Events() {
             title: "Musical Chair",
             link: "#",
             line: "By Department"
-          },
-        
-      ];
-      const data6 = [
-       
-        {
+          },     
+          {
             image: super1,
             series: "Non-Technical",
             title: "Eureka",
@@ -219,12 +206,8 @@ function Events() {
             title: "CSE-GOT Tallent",
             link: "#",
             line: "By Department"
-          },
-        
-      ];
-      const data7 = [
-       
-        {
+          },   
+          {
             image: super1,
             series: "Non-Technical",
             title: "On the spot painting",
@@ -238,9 +221,8 @@ function Events() {
             link: "#",
             line: "By Dept."
           },
-          
-        
       ];
+      
       const data8 = [
        
         {
@@ -264,11 +246,7 @@ function Events() {
             link: "#",
             line: "By Department"
           },
-        
-      ];
-      const data9 = [
-       
-        {
+          {
             image: super1,
             series: "Cultural",
             title: "Mono Acting/Mimicry",
@@ -282,9 +260,9 @@ function Events() {
             link: "#",
             line: "By Dept."
           }
-         
         
       ];
+      
   return (
     <div data-theme={theme} className="app-container">
       <ScrollToTop />
@@ -305,6 +283,7 @@ function Events() {
           <p className="sub-title" style={{color:"#E40078"}}>Get your inner Geek out</p>
           </div>
       <div className="cards">
+        
         {data.map(({ image, series, title, link, line }, index) => (
           <Card
             image={image}
@@ -317,42 +296,7 @@ function Events() {
         ))}
       </div>
       
-      <div className="cards">
-        {data1.map(({ image, series, title, link, line}, index) => (
-          <Card
-            image={image}
-            series={series}
-            title={title}
-            link={link}
-            line={line}
-            loading="lazy"
-          />
-        ))}
-      </div>
-      <div className="cards">
-        {data2.map(({ image, series, title, link, line }, index) => (
-          <Card
-            image={image}
-            series={series}
-            title={title}
-            link={link}
-            line={line}
-            loading="lazy"
-          />
-        ))}
-      </div>
-      <div className="cards">
-        {data3.map(({ image, series, title, link, line }, index) => (
-          <Card
-            image={image}
-            series={series}
-            title={title}
-            link={link}
-            line={line}
-            loading="lazy"
-          />
-        ))}
-      </div>
+      
       <div className="content">
           
           <h1 className="title" style={{color:"#E40078"}}>Non-Technical Events
@@ -371,42 +315,7 @@ function Events() {
           />
         ))}
       </div>
-      <div className="cards">
-        {data5.map(({ image, series, title, link, line }, index) => (
-          <Card
-            image={image}
-            series={series}
-            title={title}
-            link={link}
-            line={line}
-            loading="lazy"
-          />
-        ))}
-      </div>
-      <div className="cards">
-        {data6.map(({ image, series, title, link, line }, index) => (
-          <Card
-            image={image}
-            series={series}
-            title={title}
-            link={link}
-            line={line}
-            loading="lazy"
-          />
-        ))}
-      </div>
-      <div className="cards">
-        {data7.map(({ image, series, title, link, line }, index) => (
-          <Card
-            image={image}
-            series={series}
-            title={title}
-            link={link}
-            line={line}
-            loading="lazy"
-          />
-        ))}
-      </div>
+      
       <div className="content">
           
           <h1 className="title" style={{color:"#E40078"}}>Cultural Events
@@ -425,18 +334,7 @@ function Events() {
           />
         ))}
       </div>
-      <div className="cards">
-        {data9.map(({ image, series, title, link, line }, index) => (
-          <Card
-            image={image}
-            series={series}
-            title={title}
-            link={link}
-            line={line}
-            loading="lazy"
-          />
-        ))}
-      </div>
+     
     </div>
     <br/>
       <br/>

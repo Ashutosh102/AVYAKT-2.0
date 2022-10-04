@@ -19,33 +19,7 @@ function App2() {
   const changeTheme = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
   };
-  useEffect(() => {
-    const registerAnimations = () => {
-      const sr = scrollreveal({
-        origin: "bottom",
-        distance: "80px",
-        duration: 2000,
-        reset: false,
-      });
-      sr.reveal(
-        `
-        nav,
-        
-    `,
-        {
-          interval: 500,
-        }
-      );
-    };
-    registerAnimations();
-  }, []);
-  window.setTimeout(() => {
-    // const home = document.getElementsByClassName("home");
-    
-    const nav = document.getElementsByTagName("nav");
-    nav[0].style.transform = "none";
-    
-  }, 1500);
+  
   return (
     <>
   

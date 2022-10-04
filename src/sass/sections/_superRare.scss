@@ -20,8 +20,25 @@
   }
   .cards {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    overflow: auto;
+    padding: 2rem 2rem 2rem 2rem;
     gap: 5rem;
+    &::-webkit-scrollbar {
+      display: direction;
+    }
+    
+  }
+  .cards2 {
+    display: flex;
+    justify-content: space-evenly;
+    
+    padding: 2rem 2rem 2rem 2rem;
+    gap: 5rem;
+    // &::-webkit-scrollbar {
+    //   display: direction;
+    // }
+    
   }
 }
 
@@ -37,6 +54,20 @@
       &::-webkit-scrollbar {
         display: none;
       }
+
+      .card {
+        zoom: 0.7;
+      }
+    }
+    .cards2 {
+      overflow: auto;
+      justify-content: flex-start;
+      gap: 2rem;
+      padding-left: 1.5rem;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      
       .card {
         zoom: 0.7;
       }

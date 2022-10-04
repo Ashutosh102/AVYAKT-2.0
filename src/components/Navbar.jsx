@@ -64,6 +64,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
   // })}
   // const auth = sendRequestlogin();
   return (
+    
     <nav>
       <div className="brand-container">
         <div className="brand">
@@ -87,7 +88,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
         </div>
       </div>
       <div className={`links-container ${navState ? "nav-visible" : ""}`}>
-        <ul className="links">
+        {cookies.Email? (<ul className="links">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -152,7 +153,70 @@ export default function Navbar({ changeTheme, currentTheme }) {
               <BsFillMoonFill className="dark" />
             )}
           </li>
-        </ul>
+        </ul>) : (<ul className="links">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            {/* <Whisper placement="bottomStart" 
+                    trigger="click" speaker={renderMenu}>
+                    <Button appearance="primary" color="green"><RiAccountPinCircleFill/> Hello</Button></Whisper> */}
+           
+
+            {cookies.Email ? (
+               <Popup
+               trigger={<Link to="/">
+               {" "}
+               <RiAccountPinCircleFill /> Hello{" "}
+             </Link>}
+               modal
+               nested
+             >
+               {(close) => (
+                 <div className="modal">
+                   <button className="close" onClick={close}>
+                     &times;
+                   </button>
+                   <div className="header"> <RiAccountPinCircleFill /> {Email} </div>
+                   <div className="content">
+                     {" "}
+                    Hello {Email} you are logged in
+                     <br />
+                     We are glad to have you onboard!!
+                   </div>
+                   <div className="actions">
+                     <button className="button"> <Link
+                       to="/login"
+                       style={{
+                         textDecoration: "none",
+                         color: "white"
+                       }} onClick={handleRemoveCookie}>Log out</Link></button>
+                    
+                     
+                       
+                   </div>
+                 </div>
+               )}
+             </Popup>
+            ) : (
+              <Link to="/login">Log in</Link>
+            )}
+          </li>
+          <li onClick={changeTheme}>
+            {currentTheme === "dark" ? (
+              <ImSun className="light" />
+            ) : (
+              <BsFillMoonFill className="dark" />
+            )}
+          </li>
+        </ul>)}
       </div>
     </nav>
   );
