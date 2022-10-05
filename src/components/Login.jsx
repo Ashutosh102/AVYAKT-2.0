@@ -74,7 +74,7 @@ function Login() {
           progress: undefined,
           });
         setCookie('Email', inputs.email , { path: '/' });
-        setCookie('user', res.data , { path: '/' });
+        setCookie('user', res.data.token , { path: '/' });
        
         navigate('/',  { replace: true });
         
