@@ -43,7 +43,7 @@ function Reset() {
         password:inputs.password
         }).catch((err) => {console.log(err)
           toast.warn('🚫 Wrong Credentials!', {
-            position: "top-center",
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -56,7 +56,7 @@ function Reset() {
       // console.log(data);
       if (res.status === 200) {
         toast.success('🦄Logged in succesfully!', {
-          position: "top-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -151,7 +151,7 @@ function Reset() {
       })
       .catch((err) => {console.log(err)
         toast.warn('🦄 Wrong credentials hero!', {
-          position: "top-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -163,7 +163,7 @@ function Reset() {
     const data = await res.data;
     console.log(data);
     toast.success('🦄 Password reset successfully!', {
-      position: "top-center",
+      position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -191,7 +191,7 @@ function Reset() {
           <Components.Button name="submit"
                   type="submit" >Sign In</Components.Button>
                   <ToastContainer
-position="top-center"
+position="top-right"
 autoClose={5000}
 hideProgressBar={false}
 newestOnTop={false}
@@ -214,7 +214,7 @@ pauseOnHover
         {!otp &&  <Components.Input type="password" placeholder="New Password" name="spass" onChange={handleChange} value={inputs.spass}/> }
         {!otp  && <Components.Button name="verify" onClick={sendRequestReset} >Reset</Components.Button> }
         <ToastContainer
-position="top-center"
+position="top-right"
 autoClose={5000}
 hideProgressBar={false}
 newestOnTop={false}

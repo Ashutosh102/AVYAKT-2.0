@@ -19,7 +19,7 @@ import { useCookies } from "react-cookie";
 import "./sass/index.scss";
 function App() {
   toast.success('🦄 Logged in succesfully!', {
-    position: "top-center",
+    position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -70,7 +70,7 @@ function App() {
     <>
     <div data-theme={theme} className="app-container">
     {cookies.Email ? <ToastContainer
-position="top-center"
+position="top-right"
 autoClose={5000}
 hideProgressBar={false}
 newestOnTop={false}

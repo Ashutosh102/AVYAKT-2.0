@@ -52,7 +52,7 @@ function Login() {
         password:inputs.password
         }).catch((err) => {console.log(err)
           toast.warn('🚫 Wrong Credentials!', {
-            position: "top-center",
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -65,7 +65,7 @@ function Login() {
       // console.log(data);
       if (res.status === 200) {
         toast.success('🦄Logged in succesfully!', {
-          position: "top-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -100,7 +100,7 @@ function Login() {
            })
         .catch((err) => {console.log(err)
           toast.warn('🚫 Wrong OTP!', {
-            position: "top-center",
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -131,7 +131,7 @@ function Login() {
         })
         .catch((err) => {console.log(err)
           toast.warn('🚫 Not Registered try again!', {
-            position: "top-center",
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -149,7 +149,7 @@ function Login() {
     }
     else{
       toast.warn('🚫 Not a GIET mail id!', {
-        position: "top-center",
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -172,7 +172,7 @@ function Login() {
         })
         .catch((err) => {console.log(err)
           toast.warn('🚫 Wrong OTP!', {
-            position: "top-center",
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -185,7 +185,7 @@ function Login() {
       const data = await res.data;
       console.log(data);
       toast.success('🦄 OTP verified!', {
-        position: "top-center",
+        position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -222,7 +222,7 @@ function Login() {
           { !otp &&  <Components.Input type="number" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp}/> }
           {!otp  && <Components.Button name="verify" onClick={sendRequestverify}><Link style={{textDecoration:"none", color:"white"}}>verify</Link></Components.Button> }
           <ToastContainer
-position="top-center"
+position="top-right"
 autoClose={5000}
 hideProgressBar={false}
 newestOnTop={false}
@@ -251,7 +251,7 @@ pauseOnHover
           <Components.Button name="submit"
                   type="submit" onClick={handle}>Sign In</Components.Button>
                <ToastContainer
-position="top-center"
+position="top-right"
 autoClose={5000}
 hideProgressBar={false}
 newestOnTop={false}
