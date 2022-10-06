@@ -91,7 +91,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
       </div>
       <div className={`links-container ${navState ? "nav-visible" : ""}`}>
         {cookies.Email? (<ul className="links">
-          <li>
+          <li>    
             <Link to="/">Home</Link>
           </li>
           <li>
@@ -111,9 +111,9 @@ export default function Navbar({ changeTheme, currentTheme }) {
 
             {cookies.Email ? (
                <Popup
-               trigger={<Link to="/">
+               trigger={<Link to="/" style={{fontWeight:"bold"}}>
                {" "}
-               <RiAccountPinCircleFill /> Hello{" "+cookies.Email.slice(0,  cookies.Email.indexOf('@')) }
+               <RiAccountPinCircleFill /> Hello{" "+cookies.Email.slice(0,  cookies.Email.indexOf('.')) }
              </Link>}
                modal
                nested
