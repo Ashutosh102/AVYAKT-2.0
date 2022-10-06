@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,7 +17,7 @@ import Image from "./assets/contact1.png";
 import "./contacts.css";
 import * as Components from "./components";
 import axios from "axios";
-function Andev() {
+function Dance() {
   
   const [cookies] = useCookies();
   const [theme, setTheme] = useState("dark");
@@ -97,7 +96,7 @@ function Andev() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/android-app-development`, {
+      .post(`https://backend-fest.onrender.com/dance`, {
        
         token,
         name:inputs.arr.names,
@@ -173,7 +172,7 @@ if(inputs.members === 0){
       <div className="releases">
         <div className="release orange">
           <div className="content">
-            <h2 className="title">Technical events</h2>
+            <h2 className="title">Cultural events</h2>
             <p className="description">
               We have released four limited edition events early which can be
               registered
@@ -373,4 +372,4 @@ if(inputs.members === 0){
   );
 }
 
-export default Andev;
+export default Dance

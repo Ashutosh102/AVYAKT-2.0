@@ -63,77 +63,77 @@ function Events() {
           image: super2,
           series: "Technical",
           title: "Hack for Giet",
-          link: "#",
+          link: "/hack",
           line: "By GDSC"
         },
         {
           image: super3,
           series: "Technical",
           title: "Code Soccer",
-          link: "#",
+          link: "/soccer",
           line: "By DSC Club"
         },
         {
           image: super1,
           series: "Technical",
           title: "Blind Coding",
-         link: "#",
+         link: "/blind",
          line: "By DSC Club"
         },
         {
           image: super2,
           series: "Technical",
           title: "Code Debugging",
-          link: "#",
+          link: "/debug",
           line: "By CyberSecurity Club"
         },
         {
           image: super3,
           series: "Technical",
           title: "Web Puzzle",
-          link: "#",
+          link: "/webp",
           line: "By Web Eye"
         },
         {
           image: super1,
           series: "Technical",
           title: "Poster Making",
-         link: "#",
+         link: "/poster",
          line: "By Department"
         },
         {
           image: super2,
           series: "Technical",
           title: "Robotics EVENT",
-          link: "#",
+          link: "/robot",
           line: "By SARS Club"
         },
         {
           image: super3,
           series: "Technical",
           title: "Workshop",
-          link: "#",
+          link: "/workshop",
           line: "By Department"
         },
         {
           image: super1,
           series: "Technical",
           title: "Guest talks",
-         link: "#",
+         link: "/guest",
          line: "By Department"
         },
         {
           image: super2,
           series: "Technical",
           title: "Innovative Idea Poster Presentation",
-          link: "#",
+          link: "/inn-poster",
           line: "By Department"
         },
         {
           image: super3,
           series: "Technical",
           title: "Quiz",
-          link: "#",
+          link: "/quiz",
           line: "By Department"
         },
         
@@ -148,77 +148,77 @@ function Events() {
             image: super1,
             series: "Non-Tech",
             title: "Gaming",
-           link: "#",
+           link: "/gaming",
            line: "By Department"
           },
           {
             image: super2,
             series: "Non-Tech",
             title: "Group Discussion",
-            link: "#",
+            link: "/gd",
             line: "By Dept."
           },
           {
             image: super3,
             series: "Non-Tech",
             title: "Craft Making Workshop",
-            link: "#",
+            link: "/craft",
             line: "By Department"
           },
           {
             image: super1,
             series: "Non-Tech",
             title: "Treasure Hunt",
-           link: "#",
+           link: "/thunt",
            line: "By Department"
           },
           {
             image: super2,
             series: "Non-Tech",
             title: "Rangoli",
-            link: "#",
+            link: "/rangoli",
             line: "By Dept."
           },
           {
             image: super3,
             series: "Non-Tech",
             title: "Musical Chair",
-            link: "#",
+            link: "/musical",
             line: "By Department"
           },     
           {
             image: super1,
             series: "Non-Technical",
             title: "Eureka",
-           link: "#",
+           link: "/eureka",
            line: "By PDCS CLUB"
           },
           {
             image: super2,
             series: "Non-Technical",
             title: "G.K Quiz",
-            link: "#",
+            link: "/gk",
             line: "By Organising Team"
           },
           {
             image: super3,
             series: "Non-Tech",
             title: "CSE-GOT Tallent",
-            link: "#",
+            link: "/got",
             line: "By Department"
           },   
           {
             image: super1,
             series: "Non-Technical",
             title: "On the spot painting",
-           link: "#",
+           link: "/spot",
            line: "By Department"
           },
           {
             image: super2,
             series: "Non-Technical",
             title: "CARTOONING",
-            link: "#",
+            link: "/cartoon",
             line: "By Dept."
           },
       ];
@@ -229,37 +229,51 @@ function Events() {
             image: super1,
             series: "Cultural",
             title: "Song",
-           link: "#",
+           link: "/songs",
            line: "By Department"
           },
           {
             image: super2,
             series: "Cultural",
             title: "Dance",
-            link: "#",
+            link: "/dance",
             line: "By Department"
           },
           {
             image: super3,
             series: "Cultural",
             title: "Fashion Show",
-            link: "#",
+            link: "/fashion",
             line: "By Department"
           },
           {
             image: super1,
             series: "Cultural",
             title: "Mono Acting/Mimicry",
-           link: "#",
+           link: "/mimicry",
            line: "By Department"
           },
           {
             image: super2,
             series: "Cultural",
             title: "Drama",
-            link: "#",
+            link: "/drama",
             line: "By Dept."
-          }
+          },
+          {
+            image: super1,
+            series: "Cultural",
+            title: "t-shirts",
+           link: "/tshirt",
+           line: "By Department"
+          },
+          {
+            image: super2,
+            series: "Cultural",
+            title: "Food stall",
+            link: "/stall",
+            line: "By Department"
+          },
         
       ];
       

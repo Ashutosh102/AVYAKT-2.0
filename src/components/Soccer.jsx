@@ -18,7 +18,7 @@ import Image from "./assets/contact1.png";
 import "./contacts.css";
 import * as Components from "./components";
 import axios from "axios";
-function Andev() {
+function Soccer() {
   
   const [cookies] = useCookies();
   const [theme, setTheme] = useState("dark");
@@ -97,7 +97,7 @@ function Andev() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/android-app-development`, {
+      .post(`https://backend-fest.onrender.com/code-soccer`, {
        
         token,
         name:inputs.arr.names,
@@ -373,4 +373,5 @@ if(inputs.members === 0){
   );
 }
 
-export default Andev;
+
+export default Soccer
