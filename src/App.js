@@ -18,7 +18,14 @@ import scrollreveal from "scrollreveal";
 import { useCookies } from "react-cookie";
 import "./sass/index.scss";
 function App() {
-  toast.success('🦄 Logged in succesfully!', {
+  
+  const [cookies] = useCookies();
+  const [theme, setTheme] = useState("dark");
+  const changeTheme = () => {
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+  };
+  useEffect(() => {
+    toast.success('🦄 Logged in succesfully!', {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -27,12 +34,6 @@ function App() {
     draggable: true,
     progress: undefined,
     });
-  const [cookies] = useCookies();
-  const [theme, setTheme] = useState("dark");
-  const changeTheme = () => {
-    theme === "dark" ? setTheme("light") : setTheme("dark");
-  };
-  useEffect(() => {
     const registerAnimations = () => {
       const sr = scrollreveal({
         origin: "bottom",
@@ -56,6 +57,7 @@ function App() {
           interval: 500,
         }
       );
+      
     };
     registerAnimations();
   }, []);

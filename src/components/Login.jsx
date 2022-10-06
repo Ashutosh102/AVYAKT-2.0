@@ -24,9 +24,8 @@ function Login() {
   const [signIn, toggle] = React.useState(true);
   const [otp, setOtp] = useState(true);
   // const [signup,setsignup]=useState(false);
-  const [cookies, setCookie, removeCookie] = useCookies(['Email', 'Password', 'token']);
+  const [cookies, setCookie, removeCookie] = useCookies(['Email', 'token']);
   const [inputs, setInputs] = useState({
-
     email: "",
     password: "",
     sname: "",
@@ -45,6 +44,7 @@ function Login() {
     // console.log(inputs)
   };
   const sendRequestlogin = async (e) => {
+    alert("Check messgae")
     e.preventDefault();
     console.log(inputs);
     const res = await axios.post('https://backend-fest.onrender.com/login', {
@@ -90,7 +90,6 @@ function Login() {
 
   const handle = () => {
     setCookie('Email', inputs.email, { path: '/' });
-
   };
 
   const sendRequestotp = async () => {
