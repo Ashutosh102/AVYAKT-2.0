@@ -63,7 +63,7 @@ export default function Home() {
             recieve updates when we go live.
           </p>
           <button>
-          {cookies.Email ?<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}} >Log Out</Link>:<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}>Log in</Link>}
+          {cookies.Email ?<Link to="/events" style={{textDecoration:"none", color: "#DBAA00"}} >Visit events</Link>:<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}>Log in</Link>}
           </button>
           
         </div>

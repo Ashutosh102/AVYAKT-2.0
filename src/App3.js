@@ -52,7 +52,9 @@ function App3() {
       <ScrollToTop />
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
       <br/>
+      <br/>
       <Contact/>
+      <br/>
       <Footer/>
       {/* <Particles
       id="tsparticles"

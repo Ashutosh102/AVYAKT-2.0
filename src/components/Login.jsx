@@ -44,7 +44,7 @@ function Login() {
     // console.log(inputs)
   };
   const sendRequestlogin = async (e) => {
-    alert("Check messgae")
+    
     e.preventDefault();
     console.log(inputs);
     const res = await axios.post('https://backend-fest.onrender.com/login', {

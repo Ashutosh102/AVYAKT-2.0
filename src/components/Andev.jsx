@@ -60,13 +60,40 @@ function Andev() {
   }, 1500);
 
   const [inputs, setInputs] = useState({
-    name: "",
-    email: "",
-    Roll: "",
-    Teamname: "",
-    phone: "",
+    name: [],
+    email: [],
+    Roll: [],
+    Teamname: [],
+    phone: [],
     type: "SOLO",
   });
+
+  const addNewName = (e) => {
+    setInputs({ input: e.target.value });
+    const { Name, input } = inputs;
+    Name.push(input);
+    return setInputs({ name: Name });
+  };
+
+  const addNewRoll = (e) => {
+    setInputs({ input: e.target.value });
+    const { Rollno, input } = inputs;
+    Rollno.push(input);
+    return setInputs({ Roll: Rollno });
+  };
+  const addNewNum = (e) => {
+    setInputs({ input: e.target.value });
+    const { Num, input } = inputs;
+    Num.push(input);
+    return setInputs({ phone: Num });
+  };
+  const addNewEmail = (e) => {
+    setInputs({ input: e.target.value });
+    const { Mail, input } = inputs;
+    Mail.push(input);
+    return setInputs({ email: Mail });
+  };
+
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -77,14 +104,14 @@ function Andev() {
 
   const sendRequestandsubmit = async (e) => {
     e.preventDefault();
-    // console.log(inputs);
+    console.log(inputs);
     const res = await axios
       .post(`https://backend-fest.onrender.com/android-app-development`, {
         token,
         name: inputs.name,
         email: inputs.email,
         rollno: inputs.Roll,
-        // //  teamName:"soloo",
+        Teamname: inputs.Teamname,
         phone: inputs.phone,
         type: inputs.type,
       })
@@ -219,7 +246,54 @@ function Andev() {
                           </option>
                         </select>
                       </div>
-                      {(function (rows, i, len) {
+                      
+                    </>
+                  )}
+                  <div className="field">
+                    <input
+                      type="text"
+                      name="Roll"
+                      placeholder="Roll no."
+                      required=""
+                      onChange={handleChange}
+                      value={inputs.Roll}
+                    />
+                    <i className="fas fa-profile" />
+                  </div>
+                  <div className="field">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required=""
+                      onChange={handleChange}
+                      value={inputs.name}
+                    />
+                    <i className="fas fa-user" />
+                  </div>
+                  <div className="field">
+                    <input
+                      type="text"
+                      name="email"
+                      placeholder="Email"
+                      required=""
+                      onChange={handleChange}
+                      value={inputs.email}
+                    />
+                    <i className="fas fa-envelope" />
+                  </div>
+
+                  <div className="field">
+                    <input
+                      type="text"
+                      name="phone"
+                      placeholder="Phone"
+                      onChange={handleChange}
+                      value={inputs.phone}
+                    />
+                    <i className="fas fa-phone-alt" />
+                  </div>
+                  {(function (rows, i, len) {
                         while (++i <= len) {
                           rows.push(
                             <>
@@ -272,58 +346,13 @@ function Andev() {
                         }
                         return rows;
                       })([], 1, inputs.members)}
-                    </>
-                  )}
-                  <div className="field">
-                    <input
-                      type="text"
-                      name="Roll"
-                      placeholder="Roll no."
-                      required=""
-                      onChange={handleChange}
-                      value={inputs.Roll}
-                    />
-                    <i className="fas fa-profile" />
-                  </div>
-                  <div className="field">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                      required=""
-                      onChange={handleChange}
-                      value={inputs.name}
-                    />
-                    <i className="fas fa-user" />
-                  </div>
-                  <div className="field">
-                    <input
-                      type="text"
-                      name="email"
-                      placeholder="Email"
-                      required=""
-                      onChange={handleChange}
-                      value={inputs.email}
-                    />
-                    <i className="fas fa-envelope" />
-                  </div>
-
-                  <div className="field">
-                    <input
-                      type="text"
-                      name="phone"
-                      placeholder="Phone"
-                      onChange={handleChange}
-                      value={inputs.phone}
-                    />
-                    <i className="fas fa-phone-alt" />
-                  </div>
                 </div>
                 <div className="button-area">
                   <button type="submit">
                     Submit <i className="fa fa-paper-plane" />
                   </button>
                 </div>
+                
               </form>
             </div>
           </div>

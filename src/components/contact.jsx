@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import Image from "./assets/contact1.png";
@@ -40,15 +41,14 @@ const Contact = () => {
     console.log(data);
     return data;
   };
-  return (
+  return (<>
+  
     <Components.Main>
    <section className="contact" id="contact">
   
   <div className="container">
     <div className="content">
-      <div className="image-box">
-        <img draggable="false" src={Image} alt="" />
-      </div>
+      
       <form id="contact-form" onSubmit={sendRequest}>
         <div className="form-group">
           <div className="field">
@@ -84,10 +84,44 @@ const Contact = () => {
           </button>
         </div>
       </form>
+      <div className="image-box">
+      <div className="mapouter">
+  <div className="gmap_canvas">
+    <iframe
+      width={474}
+      height={549}
+      id="gmap_canvas"
+      src="https://maps.google.com/maps?q=GIET%20University,%20gunupur,%20Raygada&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      frameBorder={0}
+      scrolling="no"
+      marginHeight={0}
+      marginWidth={0}
+    />
+    <a href="https://123movies-to.org">123 movies</a>
+    <br />
+    <style
+      dangerouslySetInnerHTML={{
+        __html:
+          ".mapouter{position:relative;text-align:right;height:549px;width:474px;}"
+      }}
+    />
+    <a href="https://www.embedgooglemap.net">google map code</a>
+    <style
+      dangerouslySetInnerHTML={{
+        __html:
+          ".gmap_canvas {overflow:hidden;background:none!important;height:549px;width:474px;}"
+      }}
+    />
+  </div>
+</div>
+
+      </div>
     </div>
+    
   </div>
 </section>
 </Components.Main>
+</>
 
   )
 }
