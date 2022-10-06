@@ -21,7 +21,7 @@ import { RiAccountPinCircleFill } from "react-icons/ri";
 export default function Navbar({ changeTheme, currentTheme }) {
   const [navState, setNavState] = useState(false);
   let navigate = useNavigate();
-  const [cookies] = useCookies(['Email', 'user']);
+  const [cookies, setCookie, removeCookie] = useCookies(['Email', 'user']);
   let Email = cookies.Email;
   function handleRemoveCookie() {
     removeCookie('user');
