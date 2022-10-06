@@ -113,7 +113,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
                <Popup
                trigger={<Link to="/">
                {" "}
-               <RiAccountPinCircleFill /> Hello{" "}
+               <RiAccountPinCircleFill /> Hello{" "+cookies.Email.slice(0,  cookies.Email.indexOf('@')) }
              </Link>}
                modal
                nested
