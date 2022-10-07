@@ -140,9 +140,9 @@ function Songs() {
 
 const changenext=(e)=>{
   e.preventDefault();
-  if(--inputs.members>=0){
+  if(--inputs.members>=1){
     // console.log(inputs.members)
-    toast.info('🦄 Enter data for every user after clicking next!', {
+    toast.info('🦄 Enter data for every user after clicking next and first update roll no. to enter other data!', {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

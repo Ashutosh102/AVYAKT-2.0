@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
 import { useCookies, removeCookie } from "react-cookie";
 import scrollreveal from "scrollreveal";
 // import { useCookies } from "react-cookie";

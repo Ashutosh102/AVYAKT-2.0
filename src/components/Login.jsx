@@ -77,6 +77,7 @@ function Login() {
       });
       setCookie('Email', inputs.email, { path: '/' });
       setCookie('user', res.data.token, { path: '/' });
+      setCookie('status', res.status, { path: '/' });
 
       navigate('/', { replace: true });
 
@@ -225,7 +226,7 @@ function Login() {
 
                 {otp && <Components.Button name="otp" onClick={sendRequestregister}>otp</Components.Button>}
                 {!otp && <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled />}
-                {!otp && <Components.Input type="number" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp} />}
+                {!otp && <Components.Input type="password" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp} />}
                 {!otp && <Components.Button name="verify" onClick={sendRequestverify}><Link style={{ textDecoration: "none", color: "white" }}>verify</Link></Components.Button>}
                 <ToastContainer
                   position="top-right"
@@ -256,7 +257,7 @@ function Login() {
                 </Components.Anchor>
                 <Components.Button name="submit"
                   type="submit" onClick={handle}>Sign In</Components.Button>
-                <ToastContainer
+                {cookies.status?<ToastContainer
                   position="top-right"
                   autoClose={5000}
                   hideProgressBar={false}
@@ -266,7 +267,7 @@ function Login() {
                   pauseOnFocusLoss
                   draggable
                   pauseOnHover
-                />
+                />:null}
               </Components.Form>
             </Components.SignInContainer>
             <Components.OverlayContainer signingIn={signIn}>
