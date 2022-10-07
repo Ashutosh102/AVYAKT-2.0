@@ -90,6 +90,7 @@ function Rangoli() {
         email:inputs.email, 
         rollno:inputs.Roll,
       // //  teamName:"soloo", 
+      eventName:"Rangoli",
        phone:inputs.phone, 
        type:inputs.type
 

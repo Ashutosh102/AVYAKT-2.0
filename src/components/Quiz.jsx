@@ -90,6 +90,7 @@ function Quiz() {
         email: inputs.email,
         rollno: inputs.Roll,
         // //  teamName:"soloo", 
+        eventName: "quiz",
         phone: inputs.phone,
         type: inputs.type
 

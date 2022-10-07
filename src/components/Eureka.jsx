@@ -90,6 +90,7 @@ function Eureka() {
         email:inputs.email, 
         rollno:inputs.Roll,
       // //  teamName:"soloo", 
+      eventName:"Eureka",
        phone:inputs.phone, 
        type:inputs.type
 

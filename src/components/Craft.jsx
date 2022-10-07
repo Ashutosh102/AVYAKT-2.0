@@ -89,6 +89,7 @@ function Craft() {
         name:inputs.name,
         email:inputs.email, 
         rollno:inputs.Roll,
+        eventName:"Craft Making",
       // //  teamName:"soloo", 
        phone:inputs.phone, 
        type:inputs.type

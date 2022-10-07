@@ -90,6 +90,7 @@ function Musical() {
         email: inputs.email,
         rollno: inputs.Roll,
         // //  teamName:"soloo", 
+        eventName: "musical-chair",
         phone: inputs.phone,
         type: inputs.type
 

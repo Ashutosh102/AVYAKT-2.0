@@ -90,6 +90,7 @@ function Spotpainting() {
         email:inputs.email, 
         rollno:inputs.Roll,
       // //  teamName:"soloo", 
+      eventName:"On the spot painting",
        phone:inputs.phone, 
        type:inputs.type
 

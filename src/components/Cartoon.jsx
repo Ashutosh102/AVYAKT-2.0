@@ -88,6 +88,7 @@ function Cartoon() {
         name:inputs.name,
         email:inputs.email, 
         rollno:inputs.Roll,
+        eventName:"Cartooning",
       // //  teamName:"soloo", 
        phone:inputs.phone, 
        type:inputs.type

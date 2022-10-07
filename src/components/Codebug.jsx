@@ -89,6 +89,7 @@ function Codebug() {
         name:inputs.name,
         email:inputs.email, 
         rollno:inputs.Roll,
+        eventName:"Code Debugging",
       // //  teamName:"soloo", 
        phone:inputs.phone, 
        type:inputs.type

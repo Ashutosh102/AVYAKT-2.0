@@ -102,6 +102,7 @@ function Thunt() {
         name:inputs.arr.names,
          rollno:inputs.arr.Rolls,
           teamName:inputs.Teamname, 
+          eventName:"Treasure Hunt",
           email:inputs.arr.emails, 
           phone:inputs.arr.phones, 
           type:inputs.type

@@ -90,6 +90,7 @@ function Poster() {
         email:inputs.email, 
         rollno:inputs.Roll,
       // //  teamName:"soloo", 
+      eventName:"poster-making-competition",
        phone:inputs.phone, 
        type:inputs.type
 

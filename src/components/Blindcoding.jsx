@@ -88,6 +88,7 @@ function Blindcoding() {
         name:inputs.name,
         email:inputs.email, 
         rollno:inputs.Roll,
+        eventName:"Blind Coding",
       // //  teamName:"soloo", 
        phone:inputs.phone, 
        type:inputs.type

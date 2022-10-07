@@ -90,6 +90,7 @@ function Fashion() {
         email:inputs.email, 
         rollno:inputs.Roll,
       // //  teamName:"soloo", 
+      eventName:"Fashion Show",
        phone:inputs.phone, 
        type:inputs.type
 

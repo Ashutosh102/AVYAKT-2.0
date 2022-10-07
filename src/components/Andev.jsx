@@ -103,6 +103,7 @@ function Andev() {
         name:inputs.arr.names,
          rollno:inputs.arr.Rolls,
           teamName:inputs.Teamname, 
+          eventName:"Android App Development",
           email:inputs.arr.emails, 
           phone:inputs.arr.phones, 
           type:inputs.type

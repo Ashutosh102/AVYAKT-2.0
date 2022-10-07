@@ -90,6 +90,7 @@ function Tshirt() {
         email:inputs.email, 
         rollno:inputs.Roll,
       // //  teamName:"soloo", 
+      eventName:"Tshirt",
        phone:inputs.phone, 
        type:inputs.type
 

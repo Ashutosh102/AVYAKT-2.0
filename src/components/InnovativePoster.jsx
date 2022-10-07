@@ -90,6 +90,7 @@ function InnovativePoster() {
         email:inputs.email, 
         rollno:inputs.Roll,
       // //  teamName:"soloo", 
+      eventName:"Innovative Idea Poster Presentation",
        phone:inputs.phone, 
        type:inputs.type
 
