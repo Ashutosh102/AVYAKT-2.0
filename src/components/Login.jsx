@@ -102,7 +102,7 @@ function Login() {
       })
       .catch((err) => {
         console.log(err)
-        toast.warn('🚫 Wrong OTP!', {
+        toast.warn('🚫 Could not send!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -135,7 +135,7 @@ function Login() {
       })
       .catch((err) => {
         console.log(err)
-        toast.warn('🚫 Not Registered try again!', {
+        toast.warn('🚫 Not a Valid mail..try again!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -210,7 +210,17 @@ function Login() {
   return (
     <>
       <Components.Main>
-
+      <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
         <Components.Container>
           <div className="image-container">
             <Components.SignUpContainer signingIn={signIn}>
@@ -228,17 +238,7 @@ function Login() {
                 {!otp && <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled />}
                 {!otp && <Components.Input type="password" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp} />}
                 {!otp && <Components.Button name="verify" onClick={sendRequestverify}><Link style={{ textDecoration: "none", color: "white" }}>verify</Link></Components.Button>}
-                <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />
+                
                 {/* {signup && <Components.Button name="submit" type="submit">Sign Up</Components.Button> } */}
               </Components.Form>
             </Components.SignUpContainer>
@@ -257,17 +257,7 @@ function Login() {
                 </Components.Anchor>
                 <Components.Button name="submit"
                   type="submit" onClick={handle}>Sign In</Components.Button>
-                {cookies.status?<ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />:null}
+                
               </Components.Form>
             </Components.SignInContainer>
             <Components.OverlayContainer signingIn={signIn}>
@@ -312,6 +302,17 @@ function Login() {
               <div className="ellipse orange"></div>
             </div>
           </div>
+          {cookies.status?<ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />:null}
         </Components.Container>
       </Components.Main>
     </>
