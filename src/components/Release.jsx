@@ -4,6 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 import release1 from "../assets/poster.png";
 import release2 from "../assets/fest-1.png";
 import Card from "./Card";
+import { Link, useNavigate} from "react-router-dom";
 
 export default function Release() {
   return (
@@ -13,12 +14,12 @@ export default function Release() {
           <h2 className="title">Technical events and Workshops</h2>
           <p className="description">
             We have released four limited edition events early which can be viewed
-            <a href="#"> here</a>
+            <a> <Link to="/events" style={{textDecoration:"none"}}>here</Link></a>
           </p>
           
           <p className="description">Get ready for amazing events</p>
-          <a href="#" className="link">
-            Check them out <BsArrowRight />
+          <a className="link"><Link to="/events" style={{textDecoration:"none"}}>
+            Check them out <BsArrowRight /></Link>
           </a>
         </div>
         <div className="image">
@@ -46,8 +47,8 @@ export default function Release() {
           </p>
           
           <p className="description">Are you Ready??.</p>
-          <a href="#" className="link">
-            Check them out <BsArrowRight />
+          <a className="link"><Link to="/events" style={{textDecoration:"none"}}>
+            Check them out <BsArrowRight /></Link>
           </a>
         </div>
       </div>

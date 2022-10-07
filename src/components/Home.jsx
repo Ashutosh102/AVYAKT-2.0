@@ -59,7 +59,7 @@ export default function Home() {
   }}
   /></h1>
           <p className="description">
-            Don't miss out on the release of our new Techno-Cultural Fest. Sign up below to
+            Don't miss out on the release of our new Techno-Cultural Fest. Sign up to
             recieve updates when we go live.
           </p>
           <button>
