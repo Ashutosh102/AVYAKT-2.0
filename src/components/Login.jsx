@@ -44,73 +44,85 @@ function Login() {
     // console.log(inputs)
   };
   const sendRequestlogin = async (e) => {
-    
+
     e.preventDefault();
     console.log(inputs);
     const res = await axios.post('https://backend-fest.onrender.com/login', {
       email: inputs.email,
       password: inputs.password
     }).catch((err) => {
-      console.log(err)
-      if (res.status === 400){
-      toast.warn('🚫 Account inactive Register again', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-    if (res.status === 401){
-      toast.warn('🚫 Wrong Cerdentials', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-    if (res.status === 500){
-      toast.warn('🚫 Server error', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-    });
+      console.log(err.response.status)
+      if (err.response.status === 400) {
+        toast.warn('🚫 Account inactive Register again', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+      if (err.response.status === 401) {
+        toast.warn('🚫 Wrong Cerdentials', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+      if (err.response.status === 500) {
+        toast.warn('🚫 Server error', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+      if (err.response.status === 404) {
+        toast.warn('🚫 Account not found!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+      }
+    })
+    if (res) {
+      const data = await res.data;
+      // console.log(data);
+      if (res.status === 200) {
+        toast.success('🦄Logged in succesfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setCookie('Email', inputs.email, { path: '/' });
+        setCookie('user', res.data.token, { path: '/' });
+        setCookie('status', res.status, { path: '/' });
 
-    const data = await res.data;
-    // console.log(data);
-    if (res.status === 200) {
-      toast.success('🦄Logged in succesfully!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setCookie('Email', inputs.email, { path: '/' });
-      setCookie('user', res.data.token, { path: '/' });
-      setCookie('status', res.status, { path: '/' });
+        navigate('/', { replace: true });
 
-      navigate('/', { replace: true });
+        window.location.reload();
+      }
 
-      window.location.reload();
+      localStorage.setItem('user', res.data)
+      console.log(res.data)
+      return data;
     }
-
-    localStorage.setItem('user', res.data)
-    console.log(res.data)
-    return data;
   };
 
   const handle = () => {
@@ -136,28 +148,28 @@ function Login() {
           progress: undefined,
         })
       });
-      if (res.status === 200) {
-        toast.success('🦄OTP sent successfully!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-      if (res.status === 400) {
-        toast.warn('🚫User has not registered!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
+    if (res.status === 200) {
+      toast.success('🦄OTP sent successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (res.status === 400) {
+      toast.warn('🚫User has not registered!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
     const data = await res.data;
     console.log(data);
     // setOtp(!otp);
@@ -191,7 +203,7 @@ function Login() {
         })
       });
 
-      
+
     const data = await res.data;
     if (inputs.semail.includes("@giet.edu").toString() === "true") {
 
@@ -211,7 +223,7 @@ function Login() {
         progress: undefined,
       });
     }
-    if (res.status === 200){
+    if (res.status === 200) {
       toast.success('🦄Registered successfully!', {
         position: "top-right",
         autoClose: 5000,
@@ -222,7 +234,7 @@ function Login() {
         progress: undefined,
       });
     }
-    if (res.status === 400){
+    if (res.status === 400) {
       toast.warn('🚫Credentials Already exists!', {
         position: "top-right",
         autoClose: 5000,
@@ -256,7 +268,7 @@ function Login() {
           draggable: true,
           progress: undefined,
         })
-        if (res.status === 401){
+        if (res.status === 401) {
           toast.warn('🚫Invalid OTP.!', {
             position: "top-right",
             autoClose: 5000,
@@ -271,7 +283,7 @@ function Login() {
 
     const data = await res.data;
     console.log(data);
-    if (res.status === 200){
+    if (res.status === 200) {
       toast.success('🦄Your Account is active now.!', {
         position: "top-right",
         autoClose: 5000,
@@ -292,17 +304,17 @@ function Login() {
   return (
     <>
       <Components.Main>
-      <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <Components.Container>
           <div className="image-container">
             <Components.SignUpContainer signingIn={signIn}>
@@ -320,7 +332,7 @@ function Login() {
                 {!otp && <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled />}
                 {!otp && <Components.Input type="password" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp} />}
                 {!otp && <Components.Button name="verify" onClick={sendRequestverify}><Link style={{ textDecoration: "none", color: "white" }}>verify</Link></Components.Button>}
-                
+
                 {/* {signup && <Components.Button name="submit" type="submit">Sign Up</Components.Button> } */}
               </Components.Form>
             </Components.SignUpContainer>
@@ -339,7 +351,7 @@ function Login() {
                 </Components.Anchor>
                 <Components.Button name="submit"
                   type="submit" onClick={handle}>Sign In</Components.Button>
-                
+
               </Components.Form>
             </Components.SignInContainer>
             <Components.OverlayContainer signingIn={signIn}>
@@ -384,17 +396,17 @@ function Login() {
               <div className="ellipse orange"></div>
             </div>
           </div>
-          {cookies.status?<ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />:null}
+          {cookies.status ? <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          /> : null}
         </Components.Container>
       </Components.Main>
     </>
