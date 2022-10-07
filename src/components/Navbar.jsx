@@ -90,7 +90,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
         </div>
       </div>
       <div className={`links-container ${navState ? "nav-visible" : ""}`}>
-        {cookies.Email? (<ul className="links">
+        {cookies.user? (<ul className="links">
           <li>    
             <Link to="/">Home</Link>
           </li>
@@ -109,7 +109,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
                     <Button appearance="primary" color="green"><RiAccountPinCircleFill/> Hello</Button></Whisper> */}
            
 
-            {cookies.Email ? (
+            {cookies.user ? (
                <Popup
                trigger={<Link to="/" style={{fontWeight:"bold"}}>
                {" "}
@@ -172,7 +172,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
                     <Button appearance="primary" color="green"><RiAccountPinCircleFill/> Hello</Button></Whisper> */}
            
 
-            {cookies.Email ? (
+            {cookies.user ? (
                <Popup
                trigger={<Link to="/">
                {" "}
