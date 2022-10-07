@@ -192,15 +192,17 @@ function Login() {
       })
       .catch((err) => {
         console.log(err)
-        toast.warn('🚫 Not a Valid mail..try again!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        })
+        if (res.status === 400) {
+          toast.warn('🚫Credentials Already exists!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       });
 
 
@@ -234,17 +236,7 @@ function Login() {
         progress: undefined,
       });
     }
-    if (res.status === 400) {
-      toast.warn('🚫Credentials Already exists!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+    
   }
 
   const sendRequestverify = async (e) => {
