@@ -52,7 +52,8 @@ function Login() {
       password: inputs.password
     }).catch((err) => {
       console.log(err)
-      toast.warn('🚫 Wrong Credentials!', {
+      if (res.status === 400){
+      toast.warn('🚫 Account inactive Register again', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -61,6 +62,29 @@ function Login() {
         draggable: true,
         progress: undefined,
       });
+    }
+    if (res.status === 401){
+      toast.warn('🚫 Wrong Cerdentials', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (res.status === 500){
+      toast.warn('🚫 Server error', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
     });
 
     const data = await res.data;
@@ -112,7 +136,28 @@ function Login() {
           progress: undefined,
         })
       });
-
+      if (res.status === 200) {
+        toast.success('🦄OTP sent successfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+      if (res.status === 400) {
+        toast.warn('🚫User has not registered!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
     const data = await res.data;
     console.log(data);
     // setOtp(!otp);
@@ -145,6 +190,8 @@ function Login() {
           progress: undefined,
         })
       });
+
+      
     const data = await res.data;
     if (inputs.semail.includes("@giet.edu").toString() === "true") {
 
@@ -155,6 +202,28 @@ function Login() {
     }
     else {
       toast.warn('🚫 Not a GIET mail id!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (res.status === 200){
+      toast.success('🦄Registered successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (res.status === 400){
+      toast.warn('🚫Credentials Already exists!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -187,19 +256,32 @@ function Login() {
           draggable: true,
           progress: undefined,
         })
+        if (res.status === 401){
+          toast.warn('🚫Invalid OTP.!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       });
 
     const data = await res.data;
     console.log(data);
-    toast.success('🦄 OTP verified!', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    if (res.status === 200){
+      toast.success('🦄Your Account is active now.!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
     toggle(true)
     return data;
 
