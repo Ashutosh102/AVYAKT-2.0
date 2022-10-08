@@ -97,7 +97,7 @@ function Andev() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/android-app-development`, {
+      .post(`http://3.111.252.41:5000/android-app-development`, {
        
         token,
         name:inputs.arr.names,

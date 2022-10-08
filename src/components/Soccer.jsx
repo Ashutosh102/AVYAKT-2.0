@@ -97,7 +97,7 @@ function Soccer() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/code-soccer`, {
+      .post(`http://3.111.252.41:5000/code-soccer`, {
        
         token,
         name:inputs.arr.names,

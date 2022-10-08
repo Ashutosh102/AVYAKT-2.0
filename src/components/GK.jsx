@@ -97,7 +97,7 @@ function GK() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/gk-quiz`, {
+      .post(`http://3.111.252.41:5000/gk-quiz`, {
        
         token,
         name:inputs.arr.names,

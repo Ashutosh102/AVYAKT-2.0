@@ -84,7 +84,7 @@ function Got() {
     e.preventDefault();
     // console.log(inputs);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/cse-got-tallent`, {
+      .post(`http://3.111.252.41:5000/cse-got-tallent`, {
         token,
         name:inputs.name,
         email:inputs.email, 

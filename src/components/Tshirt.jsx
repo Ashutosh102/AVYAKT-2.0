@@ -84,7 +84,7 @@ function Tshirt() {
     e.preventDefault();
     // console.log(inputs);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/tshirts`, {
+      .post(`http://3.111.252.41:5000/tshirts`, {
         token,
         name:inputs.name,
         email:inputs.email, 

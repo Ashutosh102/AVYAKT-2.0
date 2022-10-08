@@ -84,7 +84,7 @@ function Rangoli() {
     e.preventDefault();
     // console.log(inputs);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/rangoli`, {
+      .post(`http://3.111.252.41:5000/rangoli`, {
         token,
         name:inputs.name,
         email:inputs.email, 

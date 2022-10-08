@@ -96,7 +96,7 @@ function Webp() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/web-puzzle`, {
+      .post(`http://3.111.252.41:5000/web-puzzle`, {
        
         token,
         name:inputs.arr.names,

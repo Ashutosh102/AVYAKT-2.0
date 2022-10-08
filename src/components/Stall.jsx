@@ -97,7 +97,7 @@ function Stall() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/stall`, {
+      .post(`http://3.111.252.41:5000/stall`, {
        
         token,
         name:inputs.arr.names,

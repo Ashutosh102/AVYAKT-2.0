@@ -96,7 +96,7 @@ function Dance() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/dance`, {
+      .post(`http://3.111.252.41:5000/dance`, {
        
         token,
         name:inputs.arr.names,

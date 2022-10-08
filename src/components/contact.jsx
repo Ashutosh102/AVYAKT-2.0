@@ -26,7 +26,7 @@ const Contact = () => {
     e.preventDefault();
     console.log(inputs);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/contact`, {
+      .post(`http://3.111.252.41:5000/contact`, {
         name:inputs.name,
       email:inputs.email, 
      message:inputs.message, 

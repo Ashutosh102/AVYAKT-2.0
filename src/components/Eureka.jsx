@@ -84,7 +84,7 @@ function Eureka() {
     e.preventDefault();
     // console.log(inputs);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/eureka`, {
+      .post(`http://3.111.252.41:5000/eureka`, {
         token,
         name:inputs.name,
         email:inputs.email, 

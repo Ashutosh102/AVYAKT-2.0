@@ -84,7 +84,7 @@ function Craft() {
     e.preventDefault();
     // console.log(inputs);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/craft-making`, {
+      .post(`http://3.111.252.41:5000/craft-making`, {
         token,
         name:inputs.name,
         email:inputs.email, 

@@ -96,7 +96,7 @@ function Thunt() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/treasure-hunt`, {
+      .post(`http://3.111.252.41:5000/treasure-hunt`, {
        
         token,
         name:inputs.arr.names,

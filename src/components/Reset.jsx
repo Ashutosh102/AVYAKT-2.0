@@ -82,7 +82,7 @@ function Reset() {
       e.preventDefault();
       // console.log(inputs.email);
       const res = await axios
-        .post(`https://backend-fest.onrender.com/sendotp`, {
+        .post(`http://3.111.252.41:5000/sendotp`, {
           email:inputs.semail,
            })
         .catch((err) => console.log(err));
@@ -122,7 +122,7 @@ function Reset() {
       console.log(inputs.otp);
 
       const res = await axios
-        .post(`https://backend-fest.onrender.com/verifyotp`, {
+        .post(`http://3.111.252.41:5000/verifyotp`, {
           email:inputs.semail,
           otp:parseInt(inputs.otp)
 
@@ -143,7 +143,7 @@ function Reset() {
     e.preventDefault();
     console.log(inputs);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/reset-password`, {
+      .post(`http://3.111.252.41:5000/reset-password`, {
         
         email: inputs.semail,
         otp: parseInt(inputs.otp),

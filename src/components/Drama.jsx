@@ -97,7 +97,7 @@ function Drama() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/drama`, {
+      .post(`http://3.111.252.41:5000/drama`, {
        
         token,
         name:inputs.arr.names,

@@ -47,7 +47,7 @@ function Login() {
 
     e.preventDefault();
     console.log(inputs);
-    const res = await axios.post('https://backend-fest.onrender.com/login', {
+    const res = await axios.post('http://3.111.252.41:5000/login', {
       email: inputs.email,
       password: inputs.password
     }).catch((err) => {
@@ -133,7 +133,7 @@ function Login() {
     // e.preventDefault();
     console.log(inputs.email);
     const res = await axios
-      .post(`https://backend-fest.onrender.com/sendotp`, {
+      .post(`http://3.111.252.41:5000/sendotp`, {
         email: inputs.semail,
       })
       .catch((err) => {
@@ -181,7 +181,7 @@ function Login() {
     console.log(inputs);
 
     const res = await axios
-      .post(`https://backend-fest.onrender.com/register`, {
+      .post(`http://3.111.252.41:5000/register`, {
         name: inputs.sname,
         email: inputs.semail,
         password: inputs.spass,
@@ -244,7 +244,7 @@ function Login() {
     console.log(inputs.otp);
 
     const res = await axios
-      .post(`https://backend-fest.onrender.com/verifyotp`, {
+      .post(`http://3.111.252.41:5000/verifyotp`, {
         email: inputs.semail,
         otp: parseInt(inputs.otp)
 

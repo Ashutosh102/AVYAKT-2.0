@@ -97,7 +97,7 @@ function Songs() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`https://backend-fest.onrender.com/song`, {
+      .post(`http://3.111.252.41:5000/song`, {
        
         token,
         name:inputs.arr.names,
