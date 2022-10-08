@@ -8,7 +8,14 @@ export default function Signup() {
       <div className="container">
         <div className="content">
           <p className="sub-title">Launching Soon</p>
-          <h1 className="title">The Techno-Cultural Fest</h1>
+          <h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(to left, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>The Techno-Cultural Fest</h1>
           <p className="description">
             The Event of Techies. Contact below to
             recieve updates when we go live.

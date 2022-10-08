@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link, useNavigate} from "react-router-dom";
 import * as Components from "./components";
 import "../sass/index.scss";

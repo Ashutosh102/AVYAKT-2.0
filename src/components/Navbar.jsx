@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -6,7 +7,7 @@ import { ImSun } from "react-icons/im";
 import { BsFillMoonFill } from "react-icons/bs";
 import logo from "../assets/avyakt.png";
 import "../sass/index.scss";
-import { useCookies, removeCookie } from "react-cookie";
+import { useCookies } from "react-cookie";
 import { Link, useNavigate} from "react-router-dom";
 import Popup from "reactjs-popup";
 
@@ -70,7 +71,8 @@ export default function Navbar({ changeTheme, currentTheme }) {
     <nav>
       <div className="brand-container">
         <div className="brand">
-          <img src={logo} alt="logo" loading="lazy" />
+          <Link to="/">
+          <img src={logo} alt="logo" loading="lazy" /></Link>
         </div>
         <div className="toggle-container">
           <div className="toggle">
@@ -111,7 +113,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
 
             {cookies.user ? (
                <Popup
-               trigger={<Link to="/" style={{fontWeight:"bold"}}>
+               trigger={<Link style={{fontWeight:"bold"}}>
                {" "}
                <RiAccountPinCircleFill /> Hello{" "+cookies.Email.slice(0,  cookies.Email.indexOf('.')) }
              </Link>}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Card from "./Card";
@@ -5,6 +6,7 @@ import super1 from "../assets/fest-1.png";
 import super2 from "../assets/fest-2.png";
 import super3 from "../assets/fest-3.png";
 import super4 from "../assets/fest-4.png";
+import { Link, useNavigate} from "react-router-dom";
 
 export default function SuperRare() {
   const data = [
@@ -37,9 +39,16 @@ export default function SuperRare() {
   return (
     <div className="super-rare">
       <div className="title-container">
-        <h2 className="title">Events You are waiting for</h2>
+        <h2 className="title" style={{
+    backgroundImage:
+      "linear-gradient(to left, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Events You are waiting for</h2>
         <p className="description">
-          Hurry Up and Register now <a href="#">here</a>.
+          Hurry Up and Register now <Link to="/events">here</Link>.
         </p>
       </div>
       <div className="cards">

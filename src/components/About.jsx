@@ -107,7 +107,14 @@ function About() {
       <br/>
       <div className="super-rare">
       <div className="title-container">
-        <h2 className="title">About Our Team</h2>
+        <h2 className="title" style={{
+    backgroundImage:
+      "linear-gradient(to left, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "rgba(255, 40, 208, 0.49)"
+  }}>About Our Team</h2>
         <p className="description">
           The offscreen heroes who made this possible
         </p>

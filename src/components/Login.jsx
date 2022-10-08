@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-escape */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
@@ -179,6 +180,7 @@ function Login() {
   const sendRequestregister = async (e) => {
     e.preventDefault();
     console.log(inputs);
+    if (inputs.semail.includes("@giet.edu").toString() === "true"){
 
     const res = await axios
       .post(`http://3.111.252.41:5000/register`, {
@@ -205,9 +207,21 @@ function Login() {
         }
       });
 
+      if (res.status === 200) {
+        toast.success('🦄Registered successfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+
 
     const data = await res.data;
-    if (inputs.semail.includes("@giet.edu").toString() === "true") {
+     
 
       console.log(data);
       setOtp(!otp);
@@ -225,17 +239,7 @@ function Login() {
         progress: undefined,
       });
     }
-    if (res.status === 200) {
-      toast.success('🦄Registered successfully!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+   
     
   }
 
@@ -317,10 +321,15 @@ function Login() {
                 {otp && <Components.Input type="password" placeholder="Password" name="spass" onChange={handleChange} value={inputs.spass} />}
                 {otp && <Components.Input type="text" placeholder="Mob no" name="snum" onChange={handleChange} value={inputs.snum} />}
                 {otp && <Components.Input type="text" placeholder="Roll no" name="sroll" onChange={handleChange} value={inputs.sroll} />}
-                {otp && <Components.Input type="text" placeholder="Year" name="syear" onChange={handleChange} value={inputs.syear} />}
+                {otp && <Components.Select type="text" placeholder="Year" name="syear" onChange={handleChange} value={inputs.syear} >
+                  <Components.Option value="1st" onChange={handleChange}>1st</Components.Option>
+                  <Components.Option value="2nd" onChange={handleChange}>2nd</Components.Option>
+                  <Components.Option value="3rd" onChange={handleChange}>3rd</Components.Option>
+                  <Components.Option value="4th" onChange={handleChange}>4th</Components.Option>
+                  </Components.Select>}
 
 
-                {otp && <Components.Button name="otp" onClick={sendRequestregister}>otp</Components.Button>}
+                {otp && <Components.Button name="otp" onClick={sendRequestregister}>Request otp</Components.Button>}
                 {!otp && <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={inputs.semail} disabled />}
                 {!otp && <Components.Input type="password" placeholder="otp" name="otp" onChange={handleChange} value={inputs.otp} />}
                 {!otp && <Components.Button name="verify" onClick={sendRequestverify}><Link style={{ textDecoration: "none", color: "white" }}>verify</Link></Components.Button>}
@@ -330,7 +339,14 @@ function Login() {
             </Components.SignUpContainer>
             <Components.SignInContainer signingIn={signIn}>
               <Components.Form onSubmit={sendRequestlogin}>
-                <Components.Title>Sign in</Components.Title>
+                <Components.Title style={{
+    backgroundImage:
+      "linear-gradient(95deg, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Sign in</Components.Title>
                 <Components.Input type="email" placeholder="Email" name="email"
                   onChange={handleChange}
                   value={inputs.email} />
@@ -367,7 +383,7 @@ function Login() {
                 </Components.LeftOverlayPanel>
                 <Components.RightOverlayPanel signingIn={signIn}>
                   <img src={eth2} alt="eth2" loading="lazy" />
-                  <Components.Title>Hello GIETian!!</Components.Title>
+                  <Components.Title >Hello GIETian!!</Components.Title>
                   <Components.Paragraph>
                     Start Enying the Fest!!
                   </Components.Paragraph>

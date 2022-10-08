@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import Image from "./assets/contact1.png";
 import "./contacts.css";
 import * as Components from "./components";
 import axios from "axios";
@@ -55,7 +54,14 @@ const Contact = () => {
 
             <form id="contact-form" onSubmit={sendRequest}>
               <div className="form-group">
-              <center><h1 className="title">Contact Us.</h1></center>
+              <center><h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(95deg, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Contact Us.</h1></center>
                 <div className="field">
                   <input type="text" name="name" placeholder="Name" required="" onChange={handleChange} value={inputs.name} />
                   <i className="fas fa-user" />

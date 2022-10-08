@@ -13,11 +13,9 @@ import Card from "./Card3";
 import super1 from "../assets/fest-1.png";
 import super2 from "../assets/fest-2.png";
 import super3 from "../assets/fest-3.png";
-import super4 from "../assets/fest-4.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Slider from "react-slick";
 function Events() {
     const [theme, setTheme] = useState("dark");
   const changeTheme = () => {
@@ -34,7 +32,10 @@ function Events() {
       sr.reveal(
         `
         nav,
-        .super-rare,
+        
+        
+        .releases,
+        .like,
         .signup,
         footer
     `,
@@ -42,13 +43,16 @@ function Events() {
           interval: 500,
         }
       );
+
     };
     registerAnimations();
   }, []);
   window.setTimeout(() => {
-    
+    // const home = document.getElementsByClassName("home");
+
     const nav = document.getElementsByTagName("nav");
     nav[0].style.transform = "none";
+
   }, 1500);
 
     const data = [
@@ -285,14 +289,28 @@ function Events() {
       <br/>
     <div className="super-rare">
       <div className="title-container">
-        <h2 className="title">Events You are waiting for</h2>
+        <h2 className="title" style={{
+    backgroundImage:
+      "linear-gradient(95deg, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Events You are waiting for</h2>
         <p className="description">
           Hurry Up and Register now.
         </p>
       </div>
       <div className="content">
           
-          <h1 className="title" style={{color:"#E40078"}}>Technical Events
+          <h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(95deg, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Technical Events
           </h1>
           <p className="sub-title" style={{color:"#E40078"}}>Get your inner Geek out</p>
           </div>
@@ -313,7 +331,14 @@ function Events() {
       
       <div className="content">
           
-          <h1 className="title" style={{color:"#E40078"}}>Non-Technical Events
+          <h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(95deg, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Non-Technical Events
           </h1>
           <p className="sub-title" style={{color:"#E40078"}}>Get your inner student out</p>
           </div>
@@ -332,7 +357,14 @@ function Events() {
       
       <div className="content">
           
-          <h1 className="title" style={{color:"#E40078"}}>Cultural Events
+          <h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(95deg, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Cultural Events
           </h1>
           <p className="sub-title" style={{color:"#E40078"}}>Get your inner artist out</p>
           </div>

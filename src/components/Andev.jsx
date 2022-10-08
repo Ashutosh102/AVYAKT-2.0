@@ -3,15 +3,12 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from "./Footer";
-import { useCookies, removeCookie } from "react-cookie";
+import { useCookies } from "react-cookie";
 import scrollreveal from "scrollreveal";
 // import { useCookies } from "react-cookie";
 import ScrollToTop from "./ScrollToTop";
 import { BsArrowRight } from "react-icons/bs";
 import release1 from "../assets/poster.png";
-import release2 from "../assets/fest-1.png";
-import Card from "./Card";
 import eth1 from "../assets/GIET.png";
 import eth2 from "../assets/avyakt-L1.png";
 import Image from "./assets/contact1.png";
@@ -41,14 +38,7 @@ function Andev() {
       sr.reveal(
         `
         nav,
-        .home,
-        .free,
-        .clients,
-        .super-rare,
-        .releases,
-        .like,
-        .signup,
-        footer
+       
     `,
         {
           interval: 500,
@@ -192,40 +182,7 @@ if(inputs.members === 0){
           </div>
         </div>
       </div>
-      <div className="like">
-        <div className="container">
-          <div className="content">
-            <div className="image">
-              <img src={eth1} alt="eth1" loading="lazy" />
-            </div>
-            <h2 className="title">An Organization like no other</h2>
-            <p className="description">
-              Don't miss out on the release of our new event. Sign up to
-              recieve updates when we go live on 11/22.
-            </p>
-            <p className="description">
-              Don't miss out on the release of our new event. Sign up to
-              recieve updates when we go live on 11/22. Don't miss out on the
-              release of our new Event.
-            </p>
-          </div>
-          <div className="content">
-            <div className="image">
-              <img src={eth2} alt="eth2" loading="lazy" />
-            </div>
-            <h2 className="title">An Event like no other</h2>
-            <p className="description">
-              Don't miss out on the release of our new Fest. Sign up below to
-              recieve updates when we go live on 11/22.
-            </p>
-            <p className="description">
-              Don't miss out on the release of our new Event. Sign up below to
-              recieve updates when we go live on 11/22. Don't miss out on the
-              release of our new Event.
-            </p>
-          </div>
-        </div>
-      </div>
+      
       <Components.Main>
         <section className="contact" id="contact">
           <div className="container">
@@ -342,7 +299,7 @@ if(inputs.members === 0){
                   {show && (inputs.members ) &&
                  <div className="button-area">
                   <button onClick={changenext}>
-                    next <i className="fa fa-paper-plane" />
+                    Next <i className="fa fa-paper-plane" />
                   </button>
                 </div> }
                 {(!show || !inputs.members) &&
@@ -370,6 +327,42 @@ if(inputs.members === 0){
           </div>
         </section>
       </Components.Main>
+      <br />
+      
+      <div className="like">
+        <div className="container">
+          <div className="content">
+            <div className="image">
+              <img src={eth1} alt="eth1" loading="lazy" />
+            </div>
+            <h2 className="title">An Organization like no other</h2>
+            <p className="description">
+              Don't miss out on the release of our new event. Sign up to
+              recieve updates when we go live on 11/22.
+            </p>
+            <p className="description">
+              Don't miss out on the release of our new event. Sign up to
+              recieve updates when we go live on 11/22. Don't miss out on the
+              release of our new Event.
+            </p>
+          </div>
+          <div className="content">
+            <div className="image">
+              <img src={eth2} alt="eth2" loading="lazy" />
+            </div>
+            <h2 className="title">An Event like no other</h2>
+            <p className="description">
+              Don't miss out on the release of our new Fest. Sign up below to
+              recieve updates when we go live on 11/22.
+            </p>
+            <p className="description">
+              Don't miss out on the release of our new Event. Sign up below to
+              recieve updates when we go live on 11/22. Don't miss out on the
+              release of our new Event.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

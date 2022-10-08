@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
 import { useCookies, removeCookie } from "react-cookie";
 import scrollreveal from "scrollreveal";
 // import { useCookies } from "react-cookie";
@@ -38,14 +39,7 @@ function Blindcoding() {
       sr.reveal(
         `
         nav,
-        .home,
-        .free,
-        .clients,
-        .super-rare,
-        .releases,
-        .like,
-        .signup,
-        footer
+        
     `,
         {
           interval: 500,
@@ -147,41 +141,7 @@ function Blindcoding() {
           </div>
         </div>
       </div>
-      <div className="like">
-      <div className="container">
-        <div className="content">
-          <div className="image">
-            <img src={eth1} alt="eth1" loading="lazy" />
-          </div>
-          <h2 className="title">An Organization like no other</h2>
-          <p className="description">
-            Don't miss out on the release of our new event. Sign up to
-            recieve updates when we go live on 11/22.
-          </p>
-          <p className="description">
-            Don't miss out on the release of our new event. Sign in to
-            recieve updates when we go live on 11/22. Don't miss out on the
-            release of our new Event.
-          </p>
-          
-        </div>
-        <div className="content">
-          <div className="image">
-            <img src={eth2} alt="eth2" loading="lazy"/>
-          </div>
-          <h2 className="title">An Event like no other</h2>
-          <p className="description">
-            Don't miss out on the release of our new Fest. Sign up  to
-            recieve updates when we go live on 11/22.
-          </p>
-          <p className="description">
-            Don't miss out on the release of our new Event. Sign up to
-            recieve updates when we go live on 11/22. Don't miss out on the
-            release of our new Event.
-          </p>
-        </div>
-      </div>
-    </div>
+      
     <Components.Main>
    <section className="contact" id="contact">
   
@@ -233,6 +193,43 @@ function Blindcoding() {
   </div>
 </section>
 </Components.Main>
+<br/>
+
+<div className="like">
+      <div className="container">
+        <div className="content">
+          <div className="image">
+            <img src={eth1} alt="eth1" loading="lazy" />
+          </div>
+          <h2 className="title">An Organization like no other</h2>
+          <p className="description">
+            Don't miss out on the release of our new event. Sign up to
+            recieve updates when we go live on 11/22.
+          </p>
+          <p className="description">
+            Don't miss out on the release of our new event. Sign in to
+            recieve updates when we go live on 11/22. Don't miss out on the
+            release of our new Event.
+          </p>
+          
+        </div>
+        <div className="content">
+          <div className="image">
+            <img src={eth2} alt="eth2" loading="lazy"/>
+          </div>
+          <h2 className="title">An Event like no other</h2>
+          <p className="description">
+            Don't miss out on the release of our new Fest. Sign up  to
+            recieve updates when we go live on 11/22.
+          </p>
+          <p className="description">
+            Don't miss out on the release of our new Event. Sign up to
+            recieve updates when we go live on 11/22. Don't miss out on the
+            release of our new Event.
+          </p>
+        </div>
+      </div>
+    </div>
     </div>
   )
 }

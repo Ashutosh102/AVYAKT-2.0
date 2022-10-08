@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import home from "../assets/illust.png";
@@ -14,12 +15,55 @@ export default function Home() {
       <div className="container">
         <div className="content">
           {/* <p className="sub-title">Avyakt 2.0</p> */}
-          <h1 className="title">AVYAKT 2.0<Typewriter
+          <h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(95deg, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "rgba(255, 40, 208, 0.49)"
+  }}>AVYAKT 2.0<Typewriter
             
   onInit={(typewriter)=> {
     
   typewriter
    .start()
+  .typeString("For Geeks")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Techies")
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Students")
+  .deleteAll()
+  .typeString("For Geeks")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Techies")
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Students")
+  .deleteAll()
+  .typeString("For Geeks")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Techies")
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Students")
+  .deleteAll()
+  .typeString("For Geeks")
+    
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Techies")
+  .pauseFor(1000)
+  .deleteAll()
+  .typeString("For Students")
+  .deleteAll()
   .typeString("For Geeks")
     
   .pauseFor(1000)
