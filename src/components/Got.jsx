@@ -55,11 +55,11 @@ function Got() {
 
   const [inputs, setInputs] = useState({
       
-    name: "",
-    email: "",
-    Roll:"",
-    Teamname:"",
-    phone:"",
+    name: [],
+    email: [],
+    Roll:[],
+    Teamname:[],
+    phone:[],
     type:"SOLO",
      
   });
@@ -80,6 +80,7 @@ function Got() {
         name:inputs.name,
         email:inputs.email, 
         rollno:inputs.Roll,
+        eventName:"CSE GOT TALENT",
       // //  teamName:"soloo", 
        phone:inputs.phone, 
        type:inputs.type

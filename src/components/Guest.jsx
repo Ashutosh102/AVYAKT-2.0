@@ -99,6 +99,7 @@ function Guest() {
         token,
         name:inputs.arr.names,
          rollno:inputs.arr.Rolls,
+         eventName:"Guest Talk",
           teamName:inputs.Teamname, 
           email:inputs.arr.emails, 
           phone:inputs.arr.phones, 

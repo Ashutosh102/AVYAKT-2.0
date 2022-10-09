@@ -56,11 +56,11 @@ function Eureka() {
 
   const [inputs, setInputs] = useState({
       
-    name: "",
-    email: "",
-    Roll:"",
-    Teamname:"",
-    phone:"",
+    name: [],
+    email: [],
+    Roll:[],
+    Teamname:[],
+    phone:[],
     type:"SOLO",
      
   });

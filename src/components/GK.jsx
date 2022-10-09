@@ -95,6 +95,7 @@ function GK() {
         token,
         name:inputs.arr.names,
          rollno:inputs.arr.Rolls,
+         eventName:"GK Quiz",
           teamName:inputs.Teamname, 
           email:inputs.arr.emails, 
           phone:inputs.arr.phones, 

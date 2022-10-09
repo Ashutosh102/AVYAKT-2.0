@@ -93,6 +93,7 @@ function GD() {
         name:inputs.arr.names,
          rollno:inputs.arr.Rolls,
           teamName:inputs.Teamname, 
+          eventName:"Group Discussion",
           email:inputs.arr.emails, 
           phone:inputs.arr.phones, 
           type:inputs.type
