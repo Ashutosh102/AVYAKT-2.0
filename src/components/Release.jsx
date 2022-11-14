@@ -24,7 +24,7 @@ export default function Release() {
           </a>
         </div>
         <div className="image">
-          <img src={release1} alt="release" />
+          <img src="https://i.imgur.com/ibZbdRM.png" alt="release" />
           <div className="ellipse pink"></div>
         </div>
       </div>

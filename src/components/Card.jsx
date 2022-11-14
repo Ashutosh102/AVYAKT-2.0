@@ -18,7 +18,7 @@ export default function Card({ image, series, title }) {
         </div>
         <div className="card-sub-details">
           <span>#GIETU</span>
-          <span>Coming Soon</span>
+          
         </div>
       </div>
     </div>

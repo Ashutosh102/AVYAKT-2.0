@@ -37,7 +37,7 @@ function Spotpainting() {
       sr.reveal(
         `
         nav,
-      
+       
     `,
         {
           interval: 500,
@@ -55,12 +55,19 @@ function Spotpainting() {
 
   const [inputs, setInputs] = useState({
       
-    name: [],
-    email: [],
-    Roll:[],
-    Teamname:[],
-    phone:[],
+    name: "",
+    email: "",
+    Roll:"",
+    Teamname:"",
+    phone:"",
     type:"SOLO",
+    arr:{
+      names: [],
+      emails: [],
+      Rolls: [],
+      phones: [],
+  
+    }
      
   });
   const handleChange = (e) => {
@@ -73,36 +80,29 @@ function Spotpainting() {
 
   const sendRequestandsubmit = async (e) => {
     e.preventDefault();
+    if (inputs.email.includes("@giet.edu").toString() === "true") {
+      if(inputs.phone.length===10){
+    inputs.arr.names.push(inputs.name)
+    inputs.arr.emails.push(inputs.email)
+    inputs.arr.Rolls.push(inputs.Roll)
+    inputs.arr.phones.push(inputs.phone)
+
     // console.log(inputs);
     const res = await axios
-      .post(`http://3.111.252.41:5000/on-the-spot-painting`, {
+      .post(`https://csefest.d3m0n1k.engineer/on-the-spot-painting`, {
         token,
-        name:inputs.name,
-        email:inputs.email, 
-        rollno:inputs.Roll,
+        name: inputs.arr.names,
+        email:inputs.arr.emails, 
+        rollno:inputs.arr.Rolls,
       // //  teamName:"soloo", 
-      eventName:"On the spot painting",
-       phone:inputs.phone, 
-       type:inputs.type
+      eventName:"On spot painting",
+      phone:inputs.arr.phones, 
+      type:inputs.type
 
      
-         })
-      .catch((err) => {console.log(err)
-        toast.warn('🚫 Wrong Credentials!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-          });
-
-    const data = await res.data;
-    console.log(data);
-    if (res.status === 200) {
-      toast.success('🦄Submitted Succesfully!', {
+    })
+    .catch((err) => {console.log(err)
+      toast.warn('🚫 Wrong Credentials!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -110,11 +110,65 @@ function Spotpainting() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      });}
-    // setOtp(!otp);
-    return data;
-  };
+      });
+        });
 
+  const data = await res.data;
+  
+  if (res.status === 200) {
+    toast.success('🦄Submitted Succesfully!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    setInputs({
+      name: "",
+      email: "",
+      Roll:"",
+      Teamname:"",
+      phone:"",
+      type:"SOLO",
+      arr:{
+        names: [],
+        emails: [],
+        Rolls: [],
+        phones: [],
+    
+      }
+    })
+  }
+  // setOtp(!otp);
+  return data;
+    }
+    else{
+      toast.warn('🚫 Wrong Phone Number!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }
+  else{
+    toast.warn('🚫 Enter GIET official email!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+  
+};
   return (
     <div data-theme={theme} className="app-container">
       <ScrollToTop />
@@ -192,6 +246,8 @@ function Spotpainting() {
   </div>
 </section>
 </Components.Main>
+<br/>
+<br/>
 <br/>
 <div className="like">
       <div className="container">

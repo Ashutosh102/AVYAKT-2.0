@@ -16,7 +16,7 @@ function Reset() {
   const [signIn, toggle] = React.useState(true);
     const [otp,setOtp]=useState(true);
     // const [signup,setsignup]=useState(false);
-    const [cookies, setCookie] = useCookies(['Email', 'Password', 'token']);
+    const [cookies, setCookie] = useCookies(['Email', 'token']);
     const [inputs, setInputs] = useState({
       
       email: "",
@@ -38,8 +38,8 @@ function Reset() {
     };
     const sendRequestlogin = async (e) => {
       e.preventDefault();
-      console.log(inputs);
-      const res = await axios.post('https://backend-fest.onrender.com/login', {
+      
+      const res = await axios.post('https://csefest.d3m0n1k.engineer/login', {
         email: inputs.email,
         password:inputs.password
         }).catch((err) => {console.log(err)
@@ -73,7 +73,7 @@ function Reset() {
       }
       
       localStorage.setItem('user', res.data)
-      console.log(res.data)
+      
       return data;
     };
 
@@ -83,23 +83,51 @@ function Reset() {
       e.preventDefault();
       // console.log(inputs.email);
       const res = await axios
-        .post(`http://3.111.252.41:5000/sendotp`, {
+        .post(`https://csefest.d3m0n1k.engineer/sendotp`, {
           email:inputs.semail,
            })
-        .catch((err) => console.log(err));
+        .catch((err) => {console.log(err)
+          toast.warn('🚫 Can not send OTP!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+        });
   
       const data = await res.data;
-      console.log(data);
+      if (res.status === 200) {
+        toast.success('🦄OTP sent succesfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+          toast.success("🦄If not in inbox, check SPAM📩!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
       setOtp(!otp);
       return data;
     };
-    
+  }
     const sendRequestregister = async (e) => {
       e.preventDefault();
-      console.log(inputs);
+      
 
       const res = await axios
-        .post(`https://backend-fest.onrender.com/register`, {
+        .post(`https://csefest.d3m0n1k.engineer/register`, {
             name:inputs.sname,
             email:inputs.semail,
             password:inputs.spass,
@@ -111,7 +139,7 @@ function Reset() {
         .catch((err) => console.log(err));
         
       const data = await res.data;
-      console.log(data);
+      
       setOtp(!otp);
       sendRequestotp();
       return data;
@@ -123,7 +151,7 @@ function Reset() {
       console.log(inputs.otp);
 
       const res = await axios
-        .post(`http://3.111.252.41:5000/verifyotp`, {
+        .post(`https://csefest.d3m0n1k.engineer/verifyotp`, {
           email:inputs.semail,
           otp:parseInt(inputs.otp)
 
@@ -133,7 +161,7 @@ function Reset() {
       });
   
       const data = await res.data;
-      console.log(data);
+      
       alert("otp verified")
       sendRequestReset();
       return data;
@@ -142,9 +170,9 @@ function Reset() {
     };
   const sendRequestReset = async (e) => {
     e.preventDefault();
-    console.log(inputs);
+   
     const res = await axios
-      .post(`http://3.111.252.41:5000/reset-password`, {
+      .post(`https://csefest.d3m0n1k.engineer/reset-password`, {
         
         email: inputs.semail,
         otp: parseInt(inputs.otp),
@@ -162,7 +190,7 @@ function Reset() {
           });});
 
     const data = await res.data;
-    console.log(data);
+    
     toast.success('🦄 Password reset successfully!', {
       position: "top-right",
       autoClose: 5000,
@@ -172,11 +200,23 @@ function Reset() {
       draggable: true,
       progress: undefined,
       });
+      toggle(false);
     return data;
   };
   
   return (
     <Components.Main>
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
     <Components.Container>
     <div className="image-container">
       <Components.SignUpContainer signingIn={signIn}>
@@ -191,22 +231,12 @@ function Reset() {
           
           <Components.Button name="submit"
                   type="submit" >Sign In</Components.Button>
-                  <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
+                  
         </Components.Form>
       </Components.SignUpContainer>
       <Components.SignInContainer signingIn={signIn}>
       <Components.Form onSubmit={sendRequestReset}>
-          <Components.Title>Submit New password</Components.Title>
+          <Components.Title>Reset Password</Components.Title>
        
           {otp &&   <Components.Input type="email" placeholder="Email" name="semail" onChange={handleChange} value={cookies.Email}/> }
           {otp && <Components.Button name="otp" onClick={sendRequestotp}>Send otp</Components.Button> }

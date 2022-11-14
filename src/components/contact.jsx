@@ -6,6 +6,8 @@ import * as Components from "./components";
 import axios from "axios";
 import "../sass/index.scss";
 import "../sass/sections/_free.scss"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   const [inputs, setInputs] = useState({
@@ -24,9 +26,10 @@ const Contact = () => {
   };
   const sendRequest = async (e) => {
     e.preventDefault();
-    console.log(inputs);
+    if (inputs.email.includes("@giet.edu").toString() === "true") {
+      if(inputs.phone.length === 10){
     const res = await axios
-      .post(`http://3.111.252.41:5000/contact`, {
+      .post(`https://csefest.d3m0n1k.engineer/contact`, {
         name: inputs.name,
         email: inputs.email,
         message: inputs.message,
@@ -34,18 +37,69 @@ const Contact = () => {
         number: inputs.phone
       })
       .catch((err) => {
-        console.log(err)
-        alert("Form not submitted");
-      });
+        
+       toast.warn('🚫 Something went wrong!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
 
+      });
+    });
     const data = await res.data;
-    alert("Form Submitted Successfully");
-    console.log(data);
+    toast.success('🦄 Message sent succesfully!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    
     return data;
+  }
+  else{
+    toast.warn('🚫 Enter a valid phone number!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+  }
+  else{
+    toast.warn('🚫 Please enter a official mail id!!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
   };
   return (<>
     
     <Components.Main>
+    <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
       <section className="contact" id="contact">
 
         <div className="container">

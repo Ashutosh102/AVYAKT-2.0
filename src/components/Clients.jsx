@@ -13,7 +13,7 @@ export default function Clients() {
         <div className="clients-container">
           {data.map((client, index) => (
             <div className="client" key={index}>
-              <img src={client} alt="client" loading="lazy" />
+              {/* <img src={client} alt="client" loading="lazy" /> */}
             </div>
           ))}
         </div>

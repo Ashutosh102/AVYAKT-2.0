@@ -75,7 +75,7 @@ export const Input = styled.input`
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 100%;
+  width: 125%;
 `;
 
 export const Select = styled.select`
@@ -83,7 +83,7 @@ export const Select = styled.select`
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 100%;
+  width: 125%;
 `;
 export const Option = styled.option`
   background-color: #eee;

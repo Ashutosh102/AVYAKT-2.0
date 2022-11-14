@@ -15,6 +15,8 @@ import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
 import scrollreveal from "scrollreveal";
 import { useCookies } from "react-cookie";
+import { Link, useNavigate} from "react-router-dom";
+import { FaGooglePlay } from "react-icons/fa";
 import "./sass/index.scss";
 
 function App() {
@@ -24,18 +26,20 @@ function App() {
   const changeTheme = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
   };
+  var fal=0
   useEffect(() => {
-    if(cookies.user)
+    if(cookies.user && fal===0)
     {
-      toast.success('🦄 Logged in succesfully!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      fal=1
+      // toast.success('🦄 Logged in succesfully!', {
+      //   position: "top-right",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
     }
     const registerAnimations = () => {
       const sr = scrollreveal({
@@ -94,7 +98,37 @@ function App() {
         <Free />
         <Clients />
         <SuperRare />
+        
         <Release />
+        <div className="signup">
+      <div className="container">
+        <div className="content">
+          <p className="sub-title">Download the official APP</p>
+          <h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(to left, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>Official AVYAKT APP</h1>
+          <p className="description">
+            The Event of Techies. Download below to
+            recieve updates
+          </p>
+          <button><a href="https://play.google.com/store/apps/details?id=com.gietu2.avyakt2o" style={{textDecoration:"none", color: "orange"}}><FaGooglePlay/> Google Playstore</a></button>
+        </div>
+        <div className="image-container">
+          <div className="image">
+            <img src="https://i.imgur.com/yfPhA1w.png" alt="home image" loading="lazy"/>
+          </div>
+          <div className="ellipse-container">
+            <div className="ellipse pink"></div>
+            <div className="ellipse orange"></div>
+          </div>
+        </div>
+      </div>
+    </div>
         <Like />
         {/* <App2 /> */}
         <Signup />

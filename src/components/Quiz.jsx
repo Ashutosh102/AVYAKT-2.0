@@ -20,7 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Quiz() {
   const [cookies] = useCookies();
   const [theme, setTheme] = useState("dark");
-
+  
   let token = cookies.user;
   // console.log(token)
   const changeTheme = () => {
@@ -54,14 +54,21 @@ function Quiz() {
   }, 1500);
 
   const [inputs, setInputs] = useState({
-
-    name: [],
-    email: [],
-    Roll: [],
-    Teamname: [],
-    phone: [],
-    type: "SOLO",
-
+      
+    name: "",
+    email: "",
+    Roll:"",
+    Teamname:"",
+    phone:"",
+    type:"SOLO",
+    arr:{
+      names: [],
+      emails: [],
+      Rolls: [],
+      phones: [],
+  
+    }
+     
   });
   const handleChange = (e) => {
     setInputs((prevState) => ({
@@ -73,37 +80,72 @@ function Quiz() {
 
   const sendRequestandsubmit = async (e) => {
     e.preventDefault();
+    if (inputs.email.includes("@giet.edu").toString() === "true") {
+      if(inputs.phone.length===10){
+    inputs.arr.names.push(inputs.name)
+    inputs.arr.emails.push(inputs.email)
+    inputs.arr.Rolls.push(inputs.Roll)
+    inputs.arr.phones.push(inputs.phone)
+
     // console.log(inputs);
     const res = await axios
-      .post(`http://3.111.252.41:5000/quiz`, {
+      .post(`https://csefest.d3m0n1k.engineer/quiz`, {
         token,
-        name: inputs.name,
-        email: inputs.email,
-        rollno: inputs.Roll,
-        // //  teamName:"soloo", 
-        eventName: "quiz",
-        phone: inputs.phone,
-        type: inputs.type
+        name: inputs.arr.names,
+        email:inputs.arr.emails, 
+        rollno:inputs.arr.Rolls,
+      // //  teamName:"soloo", 
+      eventName:"Quiz",
+      phone:inputs.arr.phones, 
+      type:inputs.type
 
-
-      })
-      .catch((err) => {
-        console.log(err)
-        toast.warn('🚫 Wrong Credentials!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+     
+    })
+    .catch((err) => {console.log(err)
+      toast.warn('🚫 Wrong Credentials!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
+        });
 
-    const data = await res.data;
-    console.log(data);
-    if (res.status === 200) {
-      toast.success('🦄Submitted Succesfully!', {
+  const data = await res.data;
+  
+  if (res.status === 200) {
+    toast.success('🦄Submitted Succesfully!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    setInputs({
+      name: "",
+      email: "",
+      Roll:"",
+      Teamname:"",
+      phone:"",
+      type:"SOLO",
+      arr:{
+        names: [],
+        emails: [],
+        Rolls: [],
+        phones: [],
+    
+      }
+    })
+  }
+  // setOtp(!otp);
+  return data;
+    }
+    else{
+      toast.warn('🚫 Wrong Phone Number!', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -113,9 +155,20 @@ function Quiz() {
         progress: undefined,
       });
     }
-    // setOtp(!otp);
-    return data;
-  };
+  }
+  else{
+    toast.warn('🚫 Enter GIET official email!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+  
+};
 
   return (
     <div data-theme={theme} className="app-container">
@@ -194,7 +247,9 @@ function Quiz() {
           </div>
         </section>
       </Components.Main>
-      <br />
+      <br/>
+<br/>
+<br/>
       <div className="like">
         <div className="container">
           <div className="content">

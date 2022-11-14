@@ -103,17 +103,16 @@ export default function Home() {
   }}
   /></h1>
           <p className="description">
-            Don't miss out on the release of our new Techno-Cultural Fest. Sign up to
-            recieve updates when we go live.
+            Don't miss out on the release of our new Techno-Cultural Fest. Taking place from 2nd - 4th November
           </p>
-          <button>
-          {cookies.user ?<Link to="/events" style={{textDecoration:"none", color: "#DBAA00"}} >Visit events</Link>:<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}>Log in</Link>}
-          </button>
+          
+          {cookies.user ?<Link to="/events" style={{textDecoration:"none", color: "#DBAA00"}} ><button>Visit events</button></Link>:<Link to="/login" style={{textDecoration:"none", color: "#DBAA00"}}><button>Log in</button></Link>}
+          
           
         </div>
         <div className="image-container">
           <div className="image">
-            <img src={home} alt="home image" loading="lazy" />
+            <img src="https://i.imgur.com/QqyQHXZ.png" alt="home image" loading="lazy" />
           </div>
           <div className="ellipse-container">
             <div className="ellipse pink"></div>

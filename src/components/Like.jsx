@@ -12,13 +12,10 @@ export default function Like() {
           </div>
           <h2 className="title">An Organization like no other</h2>
           <p className="description">
-            Don't miss out on the release of our new event. Sign up below to
-            recieve updates when we go live on 11/22.
+          GIET University believes that quality education should be followed by prime placements. 
           </p>
           <p className="description">
-            Don't miss out on the release of our new event. Sign up below to
-            recieve updates when we go live on 11/22. Don't miss out on the
-            release of our new Event.
+          Over the decades, the relentless effort of GIET University has ingrained a reputation for consistent quality placements. It has formed enduring & constructive partnerships with the corporate/Industries to provide foot-in- the-door opportunity to all the eligible students
           </p>
           
         </div>
@@ -26,15 +23,12 @@ export default function Like() {
           <div className="image">
             <img src={eth2} alt="eth2" loading="lazy"/>
           </div>
-          <h2 className="title">An Event like no other</h2>
+          <h2 className="title">25 Years of excellence</h2>
           <p className="description">
-            Don't miss out on the release of our new Fest. Sign up below to
-            recieve updates when we go live on 11/22.
+          GIET University, Gunupur was established by “Vidya Bharati Educational Trust,” Gunupur, Odisha, India in the year 1997. 
           </p>
           <p className="description">
-            Don't miss out on the release of our new Event. Sign up below to
-            recieve updates when we go live on 11/22. Don't miss out on the
-            release of our new Event.
+          UGC approved GIET University is one of the leading universities in Odisha, located amongst the lush greenery and foothills of the Eastern Ghats of India with the scenic Bansadhara River flowing through its territory.
           </p>
         </div>
       </div>

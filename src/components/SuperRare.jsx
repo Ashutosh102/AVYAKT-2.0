@@ -7,31 +7,46 @@ import super2 from "../assets/fest-2.png";
 import super3 from "../assets/fest-3.png";
 import super4 from "../assets/fest-4.png";
 import { Link, useNavigate} from "react-router-dom";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 export default function SuperRare() {
+  const [cookies] = useCookies();
+  let token = cookies.user;
+  const sendRequestandsubmit = async (e) => {
+    e.preventDefault();
+  const res = await axios
+  .post(`https://csefest.d3m0n1k.engineer/show-events`, {
+    token,
+})
+const data = await res.data;
+console.log(data)
+  }
+  
   const data = [
     {
-      image: super1,
-      series: "Cultural",
+      image: "https://i.imgur.com/DHQ4Kct.png",
+      series: "Non-Technical",
       title: "Events",
      
     },
     {
-      image: super2,
-      series: "Workshop",
+      image: "https://i.imgur.com/P3GFU9E.png",
+      series: "Technical",
       title: "Events",
       
     },
     {
-      image: super3,
-      series: "Technical",
-      title: "hackathons",
+      image: "https://i.imgur.com/PqMlIOh.png",
+      series: "LAN",
+      title: "Gaming",
       
     },
+   
     {
-      image: super4,
+      image: " https://i.imgur.com/Sy9ZB8C.png",
       series: "Culrtural",
-      title: "Dance and song",
+      title: "Events",
       
     },
     
@@ -47,7 +62,7 @@ export default function SuperRare() {
     backgroundClip: "text",
     color: "transparent"
   }}>Events You are waiting for</h2>
-        <p className="description">
+        <p className="description" >
           Hurry Up and Register now <Link to="/events">here</Link>.
         </p>
       </div>

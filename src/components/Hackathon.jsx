@@ -1,14 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import signup from "../assets/unstop.png";
 import { ToastContainer, toast } from 'react-toastify';
+import Footer from "./Footer";
 import 'react-toastify/dist/ReactToastify.css';
 import { useCookies } from "react-cookie";
 import scrollreveal from "scrollreveal";
 // import { useCookies } from "react-cookie";
 import ScrollToTop from "./ScrollToTop";
+import hacker from "../assets/hackitup.jpg"
 import { BsArrowRight } from "react-icons/bs";
-import release1 from "../assets/poster.png";
+import release1 from "../assets/gdsc.jpg";
 import eth1 from "../assets/GIET.png";
 import eth2 from "../assets/avyakt-L1.png";
 import Image from "./assets/contact1.png";
@@ -87,13 +90,13 @@ function Hackathon() {
     // console.log(inputs);
     // console.log(counter)
     const res = await axios
-      .post(`http://3.111.252.41:5000/hack-for-giet`, {
+      .post(`https://csefest.d3m0n1k.engineer/hack-for-giet`, {
        
         token,
         name:inputs.arr.names,
          rollno:inputs.arr.Rolls,
           teamName:inputs.Teamname, 
-          eventName:"Hackathon",
+          eventName:"Hack For GIETU",
           email:inputs.arr.emails, 
           phone:inputs.arr.phones, 
           type:inputs.type
@@ -102,7 +105,7 @@ function Hackathon() {
       })
       .catch((err) => {
         console.log(err);
-        toast.warn('🚫 Wrong Credentials!', {
+        toast.warn('🚫 Wrong Team name or inputs!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -114,7 +117,7 @@ function Hackathon() {
       });
 
     const data = await res.data;
-    console.log(data);
+   
     if (res.status === 200) {
       toast.success('🦄Submitted Succesfully!', {
         position: "top-right",
@@ -131,7 +134,7 @@ function Hackathon() {
 
 const changenext=(e)=>{
   e.preventDefault();
-  if(--inputs.members>=1){
+  if(--inputs.members>1){
     // console.log(inputs.members)
     toast.info('🦄 Enter data for every user after clicking next and first update roll no. to enter other data!', {
       position: "top-right",
@@ -161,29 +164,66 @@ if(inputs.members === 0){
     <div data-theme={theme} className="app-container">
       <ScrollToTop />
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
-      <div className="releases">
+      <div className="free2" style={{backgroundColor:"transparent"}}>
+      <div className="container">
+      <img src="https://i.imgur.com/6Rp9nIA.jpg" alt="release" style={{width:"100%", height:"100%"}} />
+        </div></div>
+      <div className="releases2">
         <div className="release orange">
           <div className="content">
-            <h2 className="title">Technical events</h2>
+            <h2 className="title">GDSC GIETU Presents</h2>
+            <h2 className="title"> "Hack For GIETU"</h2>
             <p className="description">
-              We have released four limited edition events early which can be
-              registered
+              Win Prize Worth Rs. 50,000/-
               
             </p>
 
-            <p className="description">Get ready for amazing events</p>
-            <a href="#" className="link">
+            <p className="description">- Deadline:- 18th Oct 22, 12.00AM</p>
+            <p className="description">- Team size:- 3-5</p>
+            <p className="description">- Free registration</p>
+            <p className="description">- Start Date/ End Date:- 12 oct - 01 Nov</p>
+            <a href="https://unstop.com/p/hack-for-gietu-google-developer-student-clubs-gdsc-458043" className="link">
               Register now!! <BsArrowRight />
             </a>
+            
           </div>
           <div className="image">
-            <img src={release1} alt="release" />
+            <img src="https://i.imgur.com/POrHln1.jpg" alt="release" />
             <div className="ellipse pink"></div>
           </div>
         </div>
       </div>
+
+      <div className="signup">
+      <div className="container">
+        <div className="content">
+          <p className="sub-title">Register now</p>
+          <h1 className="title" style={{
+    backgroundImage:
+      "linear-gradient(to left, #059DFF, #6549D5 , #E33FA1, #FB5343)",
+    WebkitBackgroundClip: "text",
+    MozBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent"
+  }}>The Hack for GIETU</h1>
+          <p className="description">
+            The GIET centric hackathon.
+          </p>
+          <button><a href="https://unstop.com/p/hack-for-gietu-google-developer-student-clubs-gdsc-458043" style={{textDecoration:"none", color: "orange"}}>Register Now</a></button>
+        </div>
+        <div className="image-container">
+          <div className="image">
+            <img src={signup} alt="img" loading="lazy"/>
+          </div>
+          <div className="ellipse-container">
+            <div className="ellipse pink"></div>
+            <div className="ellipse orange"></div>
+          </div>
+        </div>
+      </div>
+    </div>
       
-      <Components.Main>
+      {/* <Components.Main>
         <section className="contact" id="contact">
           <div className="container">
             <div className="content">
@@ -195,7 +235,7 @@ if(inputs.members === 0){
                   <div className="field">
                     {/* <input type="text" name="type" placeholder="type"  onChange={handleChange} value={inputs.type}/> */}
 
-                    <select
+                    {/* <select
                       name="type"
                       placeholder="type"
                       onChange={handleChange}
@@ -326,8 +366,10 @@ if(inputs.members === 0){
             </div>
           </div>
         </section>
-      </Components.Main>
+      </Components.Main> */} 
       <br/>
+<br/>
+<br/>
       <div className="like">
         <div className="container">
           <div className="content">
@@ -362,6 +404,7 @@ if(inputs.members === 0){
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function Signup() {
     <div className="signup">
       <div className="container">
         <div className="content">
-          <p className="sub-title">Launching Soon</p>
+          <p className="sub-title">Are you ready for</p>
           <h1 className="title" style={{
     backgroundImage:
       "linear-gradient(to left, #059DFF, #6549D5 , #E33FA1, #FB5343)",
@@ -24,7 +24,7 @@ export default function Signup() {
         </div>
         <div className="image-container">
           <div className="image">
-            <img src={signup} alt="home image" loading="lazy"/>
+            <img src="https://i.imgur.com/8cqWglN.png" alt="home image" loading="lazy"/>
           </div>
           <div className="ellipse-container">
             <div className="ellipse pink"></div>

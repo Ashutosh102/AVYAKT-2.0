@@ -96,7 +96,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
           <li>    
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li>    
             <Link to="/about">About</Link>
           </li>
           <li>
@@ -104,6 +104,9 @@ export default function Navbar({ changeTheme, currentTheme }) {
           </li>
           <li>
             <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/about-team">Developers</Link>
           </li>
           <li>
             {/* <Whisper placement="bottomStart" 
@@ -161,12 +164,15 @@ export default function Navbar({ changeTheme, currentTheme }) {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li>    
             <Link to="/about">About</Link>
           </li>
           
           <li>
             <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/about-team">Developers</Link>
           </li>
           <li>
             {/* <Whisper placement="bottomStart" 

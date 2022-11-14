@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react'
 import "../sass/index.scss";
+
 export default function Card2({ image, series, title, link, line }) {
   return (
     <div className="card">

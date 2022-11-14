@@ -9,12 +9,7 @@ import React, { useState, useEffect } from "react";
 import scrollreveal from "scrollreveal";
 import ScrollToTop from "./ScrollToTop";
 import Card2 from "./Card2";
-import super1 from "../assets/Ashu.png";
-import super2 from "../assets/Ayush.png";
-import super3 from "../assets/Ankit.png";
-import super4 from "../assets/Devi.png";
-import super5 from "../assets/Panda.png";
-import super6 from "../assets/Raj.png";
+
 
 function About() {
   const [theme, setTheme] = useState("dark");
@@ -51,22 +46,22 @@ function About() {
 
   const data = [
     {
-      image: super1,
-      series: "Front-End",
+      image: "https://i.imgur.com/8MTl612.png",
+      series: "React Front-End / Deployment",
       title: "Ashutosh Mohanty",
      link: "https://www.linkedin.com/in/ashutosh-mohanty-3464a6204/",
      line: "Jack Of All Trades"
     },
     {
-      image: super2,
-      series: "Backend",
+      image: "https://i.imgur.com/o60KLih.png",
+      series: "Backend / Deployment",
       title: "Ayush Sharma",
       link: "https://www.linkedin.com/in/ayush-sharma-551133213/",
       line: "Hardwork Pays off"
     },
     {
-      image: super3,
-      series: "Graphics",
+      image: "https://i.imgur.com/pYHZbLk.png",
+      series: "Graphics / Posters",
       title: "Ankit Mahapatra",
       link: "https://www.linkedin.com/in/ankit-mahapatra-5184711bb",
       line: "Creativity in every pixel"
@@ -76,26 +71,20 @@ function About() {
   ];
   const data1 = [
     {
-      image: super4,
-      series: "UI/UX",
+      image: "https://i.imgur.com/DSEHN6u.png",
+      series: "Graphics / Posters",
       title: "Devi Prasad Mishra",
       link: "https://www.linkedin.com/in/devi-prasad-mishra-726903210/",
       line: "Designing every aspects"
     },
     {
-      image: super6,
-      series: "Front-end",
+      image: "https://i.imgur.com/Dem4vzn.png",
+      series: "React Front-end / Integration",
       title: "Ankit Raj",
      link: "https://www.linkedin.com/in/ankitrj1602",
      line: "Developing new plans"
     },
-    {
-      image: super5,
-      series: "Deployment",
-      title: "Sourav Kumar Panda",
-      link: "https://www.linkedin.com/in/sourav-kumar-panda-38536b1a9/",
-      line: "Man on a mission"
-    },
+  
    
     
   ];
